@@ -1,0 +1,15 @@
+<h1>Grupos</h1>
+
+<table>
+
+<% for group in @groups %>
+  <tr>
+      <td class="date"><p>hola</p></td>
+      <td class="title"><p><%= group.name %></p></td>
+      <td class="description"><p><%= group.description %></p></td>
+      <td class="comments"><% for user in group.users -%><%= link_to user.name, user %><% end -%></td>
+  </tr>
+<% end %>
+</table>
+
+

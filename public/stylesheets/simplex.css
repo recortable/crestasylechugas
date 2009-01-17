@@ -14,3 +14,21 @@ h1 {
     margin: 1em 0 0.5em 180px;
     font-weight: bold;
 }
+
+a {text-decoration: none;}
+a:hover {}
+
+.page {width: 60em; margin: 2em auto;}
+
+.navigation {width: 100%; overflow: hidden;}
+.navigation a {display: block; float: left; padding-right: 1em; color: black;letter-spacing:-0.05em;}
+.navigation a:hover {color: white;}
+
+
+table { width: 100%;
+    color: rgba(30, 40, 30, 0.6); }
+tr {border-top: 1px solid rgba(30, 40, 30, 0.4);}
+td {vertical-align: bottom; padding: 0.5em;}
+td.date {width: 20%;}
+td.title {padding: 0.25em 0; font-size: 2em; width: 20%; letter-spacing:-0.05em; line-height:1em;}
+td.title p {color:rgba(30, 40, 30, 0.9); }

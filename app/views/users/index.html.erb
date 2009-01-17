@@ -1,0 +1,13 @@
+<h1>crestiles y lechuginas</h1>
+
+<table>
+  <% for user in @users %>
+    <tr>
+      <td class="date"><p>hola</p></td>
+      <td class="title"><p><%= user.name %></p></td>
+      <td class="description"><p>danigb@yahoo.es</p></td>
+      <td class="comments"><% for group in user.groups -%><%= link_to group.name, group %><% end -%></td>
+    </tr>
+  <% end %>
+</table>
+
