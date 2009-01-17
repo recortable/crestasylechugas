@@ -1,0 +1,16 @@
+
+
+html {
+    background-color: #58DF37;
+    color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h1 {
+    color: #fff;
+    font-size: 3em;
+    letter-spacing: -0.05em;
+    line-height: 1em;
+    margin: 1em 0 0.5em 180px;
+    font-weight: bold;
+}
