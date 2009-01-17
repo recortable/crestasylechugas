@@ -1,0 +1,33 @@
+
+
+<h1>Añadir un documento</h1>
+
+<% form_for(@document) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :dialect %>
+  <%= f.label :body %>
+  <%= f.text_area :body, :id => 'editor' %><br/>
+  <%= f.submit "Create" %><br/>
+<% end %>
+
+<%= link_to 'Back', documents_path %>
+
+
+
+<% content_for :header do -%>
+  <%= stylesheet_link_tag javascript_path 'jwysiwyg-0.4/jquery.wysiwyg.css'   %>
+  <%= javascript_include_tag 'jwysiwyg-0.4/jquery.wysiwyg.pack'  %>
+  <script type="text/javascript">
+    $(function() {
+      $('#editor').wysiwyg({
+        controls : {
+          separator04 : { visible : true },
+
+          insertOrderedList : { visible : true },
+          insertUnorderedList : { visible : true }
+        }
+      });
+    });
+  </script>
+<% end %>

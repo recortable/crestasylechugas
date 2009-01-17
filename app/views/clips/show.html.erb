@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @clip.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @clip.description %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @clip.author %>
+</p>
+
+
+<%= link_to 'Edit', edit_clip_path(@clip) %> |
+<%= link_to 'Back', clips_path %>

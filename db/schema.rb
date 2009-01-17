@@ -9,12 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090117203811) do
+ActiveRecord::Schema.define(:version => 20090117222705) do
 
   create_table "clips", :force => true do |t|
     t.string   "title"
     t.string   "description"
+    t.string   "content_class"
+    t.string   "content_type"
+    t.integer  "content_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", :force => true do |t|
+    t.string   "dialect"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
