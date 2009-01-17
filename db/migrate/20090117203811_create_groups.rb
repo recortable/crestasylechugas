@@ -6,7 +6,7 @@ class CreateGroups < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :groups_users do |t|
+    create_table :groups_users, :id => false do |t|
       t.references :group
       t.references :user
     end
@@ -14,6 +14,10 @@ class CreateGroups < ActiveRecord::Migration
     cyl = Group.new(:name => 'cyl')
     cyl.users << User.find(:all)
     cyl.save
+
+    ci = Group.create(:name => 'comisión técnica', :description => 'se encarga de todas las labores guapas guapas de la hüerta')
+    ci.users << User.find(1)
+    ci.save
   end
 
   def self.down

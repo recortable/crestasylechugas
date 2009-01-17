@@ -1,0 +1,65 @@
+
+--- 
+users: 
+  columns: 
+  - id
+  - name
+  - email
+  - pass
+  - access
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - jorge
+    - jorge@cyl.com
+    - 
+    - 
+    - 2009-01-17 20:58:51
+    - 2009-01-17 20:58:51
+  - - "2"
+    - paelo
+    - paelo@cyl.com
+    - 
+    - 
+    - 2009-01-17 20:58:51
+    - 2009-01-17 20:58:51
+  - - "3"
+    - dani
+    - danigb@cyl.com
+    - 
+    - 
+    - 2009-01-17 20:58:51
+    - 2009-01-17 20:58:51
+
+--- 
+groups: 
+  columns: 
+  - id
+  - name
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - cyl
+    - 
+    - 2009-01-17 20:58:51
+    - 2009-01-17 20:58:51
+
+--- 
+groups_users: 
+  columns: 
+  - id
+  - group_id
+  - user_id
+  records: 
+  - - "1"
+    - "1"
+    - "1"
+  - - "2"
+    - "1"
+    - "2"
+  - - "3"
+    - "1"
+    - "3"

@@ -1,0 +1,11 @@
+
+<div class="login">
+<h1>Entra</h1>
+  <% form_tag( :action => 'login') do -%>
+    <%= content_tag( :div, flash[:error], :class => 'error' ) if flash[:error] %>
+    <label>email:</label><%= text_field_tag :email %><br/>
+    <label>contraseña:</label><%= password_field_tag :pass %><br/>
+    <label>&nbsp;</label><%= submit_tag 'Adelante!' %><br/>
+  <% end -%>
+</div>
+

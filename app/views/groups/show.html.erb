@@ -1,18 +1,2 @@
-<p>
-  <b>Title:</b>
-  <%=h @group.title %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%=h @group.description %>
-</p>
-
-<p>
-  <b>References:</b>
-  <%=h @group.references %>
-</p>
-
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<h2><%= @group.name %></h2>

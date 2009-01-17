@@ -8,9 +8,9 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    User.create(:name => 'jorge', :email => 'jorge@cyl.com')
-    User.create(:name => 'paelo', :email => 'paelo@cyl.com')
-    User.create(:name => 'dani', :email => 'danigb@cyl.com')
+    User.create(:name => 'Jorge', :email => 'jorge@cyl.com', :pass => 'jorge')
+    User.create(:name => 'Paelo', :email => 'paelo@cyl.com', :pass => 'paelo')
+    User.create(:name => 'Dani', :email => 'danigb@cyl.com', :pass => 'dani')
   end
 
   def self.down

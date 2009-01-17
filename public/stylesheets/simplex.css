@@ -2,7 +2,7 @@
 
 html {
     background-color: #58DF37;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -20,15 +20,31 @@ a:hover {}
 
 .page {width: 60em; margin: 2em auto;}
 
-.navigation {width: 100%; overflow: hidden;}
-.navigation a {display: block; float: left; padding-right: 1em; color: black;letter-spacing:-0.05em;}
-.navigation a:hover {color: white;}
+.navigation {width: 100%; overflow: hidden; 
+  border-top: 1px solid rgba(30, 40, 30, 0.4); border-bottom: 1px solid rgba(30, 40, 30, 0.4);}
+.navigation a {display: block; float: left; margin: 0.2em 1em; color: black;letter-spacing:-0.05em;}
+.navigation a:hover {color: rgba(255, 255, 255, 0.8); margin-bottom: 0; border-bottom: 0.2em solid rgba(30, 40, 30, 0.4);}
+.navigation .login {float: right; margin: 0.2em 1em 0 0;}
+.navigation .login a {display: inline;  margin: 0; padding: 0; float: none; color: rgba(255, 255, 255, 0.8);}
 
+form label {display: block; float: left; width: 20%; margin-right: 1em; text-align: right; margin-top: 4px;}
+form input {display: block; float: left;}
+form input[type=text], form input[type=password] {width: 60%; border: 0px solid black; margin: 2px; padding: 2px;
+  background-color: rgba(255, 255, 255, 0.8);}
+form input[type=submit] {margin-top: 0.5em;}
+form br {clear: both;}
 
 table { width: 100%;
     color: rgba(30, 40, 30, 0.6); }
 tr {border-top: 1px solid rgba(30, 40, 30, 0.4);}
 td {vertical-align: bottom; padding: 0.5em;}
 td.date {width: 20%;}
-td.title {padding: 0.25em 0; font-size: 2em; width: 20%; letter-spacing:-0.05em; line-height:1em;}
-td.title p {color:rgba(30, 40, 30, 0.9); }
+td.title  {padding: 0.25em 0; font-size: 2em; width: 20%; letter-spacing:-0.05em; line-height:1em;}
+td.title a {color:rgba(30, 40, 30, 0.9); }
+td.title a:hover {color:rgba(0, 10, 0, 0.9); }
+
+td.description {font-size:0.75em; line-height:1.125em;}
+
+td.links a {font-size: 0.8em; display: block; float: left; margin: 0.2em; padding: 0em 0.8em 0.2em 0.8em;
+  background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9); }
+td.links a:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 30, 1);}
