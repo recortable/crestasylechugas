@@ -1,0 +1,18 @@
+<h1>Listing archives</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for archive in @archives %>
+  <tr>
+    <td><%= link_to 'Show', archive %></td>
+    <td><%= link_to 'Edit', edit_archive_path(archive) %></td>
+    <td><%= link_to 'Destroy', archive, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New archive', new_archive_path %>
