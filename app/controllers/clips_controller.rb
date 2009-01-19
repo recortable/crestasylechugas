@@ -1,4 +1,6 @@
 class ClipsController < ApplicationController
+  layout 'simplex'
+  
   # GET /clips
   # GET /clips.xml
   def index

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @tags.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @tags.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_tags_path(@tags) %> |
+<%= link_to 'Back', tags_path %>

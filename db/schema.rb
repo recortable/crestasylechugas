@@ -9,15 +9,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090117222705) do
+ActiveRecord::Schema.define(:version => 20090119123515) do
+
+  create_table "archives", :force => true do |t|
+    t.string   "content_type"
+    t.string   "filename"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "parent_id"
+    t.string   "thumbnail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clips", :force => true do |t|
-    t.string   "title"
-    t.string   "description"
+    t.string   "title",         :null => false
+    t.string   "description",   :null => false
     t.string   "content_class"
     t.string   "content_type"
     t.integer  "content_id"
-    t.integer  "user_id"
+    t.integer  "user_id",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20090117222705) do
   end
 
   create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",        :null => false
+    t.string   "description", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,10 +53,19 @@ ActiveRecord::Schema.define(:version => 20090117222705) do
     t.integer "user_id"
   end
 
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "pass"
+    t.boolean  "admin",      :default => false
+    t.boolean  "active",     :default => true
     t.datetime "access"
     t.datetime "created_at"
     t.datetime "updated_at"

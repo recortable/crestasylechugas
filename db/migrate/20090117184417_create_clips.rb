@@ -1,12 +1,12 @@
 class CreateClips < ActiveRecord::Migration
   def self.up
     create_table :clips do |t|
-      t.string 'title'
-      t.string 'description'
-      t.string 'content_class'
-      t.string 'content_type'
-      t.references 'content'
-      t.references 'user'
+      t.string 'title', :null => false
+      t.string 'description', :null => false
+      t.string 'content_class' 
+      t.string 'content_type' 
+      t.references 'content' 
+      t.references 'user', :null => false
       t.timestamps
     end
   end

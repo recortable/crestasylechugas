@@ -6,13 +6,17 @@
     <title>Crestas y lechugas - <%= yield(:title) || "Movimiento de huerta sin tierras" %></title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <%= javascript_include_tag 'jquery.valida.js'  %>
     <%= stylesheet_link_tag 'simplex' %>
     <%= yield :header %>
   </head>
   <body>
     <div class="page">
       <div class="navigation"><%= link_to 'Gente', users_path %><%= link_to 'Grupos', groups_path %>
-      <div class="login">hola, <%= link_to @current.name, @current %></div>      </div>
+        <%= link_to 'Clips', clips_path %>
+        <div class="login">hola, <%= link_to @current.name, @current %>.
+        <%= link_to('Eres administrador', :controller => 'admin' ) if @current.admin %> </div>
+      </div>
       <%= yield %>
     </div>
   </body>

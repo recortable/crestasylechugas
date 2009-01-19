@@ -1,8 +1,8 @@
 class CreateGroups < ActiveRecord::Migration
   def self.up
     create_table :groups do |t|
-      t.string :name
-      t.string :description
+      t.string :name, :null => false
+      t.string :description, :null => false
       t.timestamps
     end
 
@@ -11,7 +11,7 @@ class CreateGroups < ActiveRecord::Migration
       t.references :user
     end
 
-    cyl = Group.new(:name => 'cyl')
+    cyl = Group.new(:name => 'cyl', :description => 'tod@s estamos en Crestas y Lechugas')
     cyl.users << User.find(:all)
     cyl.save
 

@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   def load_user
-    @current = User.find(session[:user])
+    puts "LOAD USER #{session[:user_id]}"
+    if session[:user_id].nil?
+      redirect_to :controller => "cyl", :action => "entrar"
+    elsif
+      @current = User.find(session[:user_id])
+      render :controller => 'cyl', :action => 'new_password' if @current.pass == ''
+    end
   end
 end

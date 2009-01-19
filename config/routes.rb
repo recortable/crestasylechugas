@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tags
+
   map.resources :archives
 
   map.resources :documents
@@ -14,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'cyl'
 
+  map.connect 'admin/:action/:id', :controller => 'admin'
   map.connect ':action/:id', :controller => 'cyl'
   map.connect ':action/:id.:format', :controller => 'cyl'
 end

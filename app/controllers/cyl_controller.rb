@@ -6,21 +6,45 @@ class CylController < ApplicationController
   end
 
   def entrar
-    render :action => 'entrar', :layout => 'login'
+    render_login
   end
 
   def login
+    session[:user_id] = nil
     u = User.find_by_email(params[:email])
     if u.nil?
-      flash[:error] = 'ese email no está registrado'
-      render :action => 'entrar'
-    elsif u.pass == params[:pass]
-      session[:user] = u.id
-      session[:user_name] = u.name
-      render :action => 'index'
+      render_login 'Ese email no está registrado'
+    elsif u.pass == ""
+      session[:user_id] = u.id
+      redirect_to :action => 'change_password'
+    elsif u.pass != params[:pass]
+      render_login 'La contraseña no es correcta'
     else
-      flash[:error] = 'la contraseña no es correcta'
-      render :action => 'entrar'
+      session[:user_id] = u.id
+      redirect_to :controller => 'users'
     end
+  end
+
+  def new_password
+  end
+
+  def change_password
+    if params[:pass].length < 6
+      flash[:error] = 'Pon algo más largo de 5 caracteres, ánda...'
+      render :action => 'new_password'
+    elsif params[:pass] != params[:pass2]
+      flash[:error] = 'Las contraseñas no son iguales!'
+      render :action => 'new_password'
+    else
+      @current.passs = params[:pass]
+      @current.save
+      redirect_to :controller => 'users'
+    end
+  end
+
+  private
+  def render_login(error = nil)
+    flash[:error] = error
+    render :action => 'entrar', :layout => 'login'
   end
 end

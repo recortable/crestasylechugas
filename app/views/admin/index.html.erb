@@ -1,0 +1,19 @@
+<h1>Labores de administración</h1>
+
+<%= flash_div :notice %>
+
+<h2>Añadir un grupo nuevo</h2>
+<% form_tag( {:action => 'create_group'}, :id => 'create_group' ) do -%>
+  <%= flash_div :error %>
+  <%= field_text 'Nombre:', :group, :name, :validate => [:not_empty] %>
+  <%= field_text 'Descripción:', :group, :description, :validate => [:not_empty] %>
+  <%= field_submit 'Crear grupo', :create_group %>
+<% end -%>
+
+<h2>Añadir un miembro a (la web de) crestas y lechugas</h2>
+<% form_tag :action => 'create_member' do -%>
+  <%= flash_div :error %>
+  <%= field_text 'Nombre:', :user, :name %>
+  <%= field_text 'Email:', :user, :email %>
+  <%= field_submit 'Crear', :create_member %>
+<% end -%>
