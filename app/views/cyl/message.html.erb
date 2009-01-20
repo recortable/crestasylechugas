@@ -1,0 +1,14 @@
+<div class="actions">
+  <%= link_to 'Crear mensaje', {:action => 'message_new'}, :class => 'button' %>
+</div>
+
+<h1>Todos los mensajes</h1>
+<table>
+  <% for message in Clip.messages -%>
+    <tr>
+      <td class="info"><%= clip_info message %></td>
+      <td class="title"><%= message.document.title %> </td>
+      <td class="description"><%= message.document.body %></td>
+    </tr>
+  <% end -%>
+</table>

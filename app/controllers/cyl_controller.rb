@@ -25,9 +25,6 @@ class CylController < ApplicationController
     end
   end
 
-  def new_password
-  end
-
   def change_password
     if params[:pass].length < 6
       flash[:error] = 'Pon algo más largo de 5 caracteres, ánda...'
@@ -42,15 +39,19 @@ class CylController < ApplicationController
     end
   end
 
-  def blog_new
-  end
-
   def blog_create
     Document.transaction do
       d = Document.create(params[:blog])
-      Clip.create(:title => 'Entrada al blog', :description => d.summary, :content_class => 'Document',
-        :content_type => 'blog', :recipient_id => 1, :user_id => @current.id, :content_id => d.id )
+      d.new_clip('Entrada al blog', 'blog', @current, 1).save
       redirect_to :action => 'blog'
+    end
+  end
+
+  def message_create
+    Document.transaction do
+      d = Document.create(params[:message])
+      d.new_clip('Mensaje', 'message', @current, params[:clip][:recipient]).save
+      redirect_to :action => 'message'
     end
   end
 
