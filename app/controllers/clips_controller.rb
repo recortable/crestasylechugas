@@ -4,7 +4,7 @@ class ClipsController < ApplicationController
   # GET /clips
   # GET /clips.xml
   def index
-    @clips = Clip.find(:all)
+    @clips = Clip.all(:order => 'id desc')
 
     respond_to do |format|
       format.html # index.html.erb

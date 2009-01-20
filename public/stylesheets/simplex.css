@@ -20,6 +20,9 @@ a.button {display: block; float: left; margin: 0.3em 0.1em; padding: 0.2em 0.8em
   background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.7);}
 a.button:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 30, 1);}
 
+.notice {display: block; margin: 0 10%; padding: 0.2em 0.8em 0.2em 0.8em; text-align: center;
+  background-color: rgba(255, 138, 0, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9);}
+
 .page {width: 60em; margin: 2em auto;}
 
 .navigation {width: 100%; overflow: hidden; 
@@ -29,17 +32,30 @@ a.button:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 
 .navigation .login {float: right; margin: 0.2em 1em 0 0;}
 .navigation .login a {display: inline;  margin: 0; padding: 0; float: none; color: rgba(255, 255, 255, 0.8);}
 
+.quick {float: right; margin-top: 3em; width: 18%;}
+.content {width: 80%;}
+.labels a {display: block; padding-left: 0.5em;
+   color: rgba(0, 0, 0, 0.7); border-top: 1px solid rgba(30, 40, 30, 0.4);
+}
+.labels a:hover {
+   color: rgba(255, 255, 255, 0.7); background-color: rgba(0, 0, 0, 0.3); 
+}
+
 form label {display: block; float: left; width: 18%; margin-right: 2%; text-align: right; margin-top: 4px;}
 form input {display: block; float: left;}
 form input[type=text], form input[type=password] {width: 60%; border: 1px solid white; margin: 2px; padding: 2px;
   background-color: rgba(255, 255, 255, 0.8);}
+form select {width: 60%; margin: 0.3em 0; }
+form select {width: 20%;}
 form input.error {border: 1px solid #c00;}
 
 form input[type=submit] {margin-top: 0.5em;}
 form br {clear: both;}
 form textarea {width: 80%;}
 form a.submit {font-size: 0.9em;}
-form p.error {margin-left: 20%; color: #c00;}
+form p.error {margin-left: 20%; color: #c00; clear: both;}
+
+.wysiwyg {margin: 1em 0; background-color: rgba(255, 255, 255, 0.8);}
 
 table { width: 100%;
     color: rgba(30, 40, 30, 0.6); }

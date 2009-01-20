@@ -13,11 +13,15 @@
   <body>
     <div class="page">
       <div class="navigation"><%= link_to 'Gente', users_path %><%= link_to 'Grupos', groups_path %>
-        <%= link_to 'Clips', clips_path %>
+        <%= link_to 'Clips', clips_path %><%= link_to 'Entradas', documents_path %>
         <div class="login">hola, <%= link_to @current.name, @current %>.
-        <%= link_to('Eres administrador', :controller => 'admin' ) if @current.admin %> </div>
+        <%= link_to('Eres administrador', :controller => 'admin' ) if @current.admin %>.
+        <%= link_to 'Salir', :controller => 'cyl', :action => 'logout' %></div>
       </div>
-      <%= yield %>
+      <div class="quick">
+        <ul class="labels"><% for label in Label.all -%><li><%= link_to label.name, label %></li><% end -%></ul>
+      </div>
+      <div class="content"><%= yield %></div>
     </div>
   </body>
 </html>

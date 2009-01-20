@@ -3,7 +3,7 @@
 <table>
 <% for clip in @clips %>
   <tr>
-    <td class="date"><%= clip.user.name %></td>
+    <td class="date"><%= fecha clip.created_at %> <%= clip.user.name %></td>
     <td class="title"><%=h clip.title %></td>
     <td class="description"><%=h clip.description %></td>
   </tr>

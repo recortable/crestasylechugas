@@ -7,13 +7,23 @@
   <%= flash_div :error %>
   <%= field_text 'Nombre:', :group, :name, :validate => [:not_empty] %>
   <%= field_text 'Descripción:', :group, :description, :validate => [:not_empty] %>
+  <%= field_boolean '¿Es un gak?:', :group, :gak %>
   <%= field_submit 'Crear grupo', :create_group %>
 <% end -%>
 
 <h2>Añadir un miembro a (la web de) crestas y lechugas</h2>
-<% form_tag :action => 'create_member' do -%>
+<% form_tag({:action => 'create_member'}, :id => 'create_member' ) do -%>
   <%= flash_div :error %>
-  <%= field_text 'Nombre:', :user, :name %>
-  <%= field_text 'Email:', :user, :email %>
-  <%= field_submit 'Crear', :create_member %>
+  <%= field_text 'Nombre:', :user, :name , :validate => [:not_empty] %>
+  <%= field_text 'Email:', :user, :email, :validate => [:not_empty] %>
+  <%= field_select 'GAK al que pertence', :gak, :id, Group.gaks.collect {|p| [ p.name, p.id ] } %>
+  <%= field_submit 'Añadir miembro', :create_member %>
+<% end -%>
+
+<h2>Añadir una etiqueta</h2>
+<% form_tag({:action => 'create_label'}, :id => 'create_label') do -%>
+  <%= flash_div :error %>
+  <%= field_text 'Nombre:', :label, :name, :validate => [:not_empty] %>
+  <%= field_text 'Descripción:', :label, :description, :validate => [:not_empty] %>
+  <%= field_submit 'Añadir etiqueta', :create_label %>
 <% end -%>

@@ -1,40 +1,56 @@
 
 (function ($) {
+    var validators = {
+        not_empty : function (ctx, text) {
+            if (text == "") {
+                addError("no puede estar vac&iacute;o", this, ctx)
+            }
+        }
+    };
 
-    var validate = function (e, args) {
+
+
+    $.fn.valida = function() {
+        var ctx = {
+            errors : 0
+        };
+
+        $(this).find("p.error").remove();
+        var result = this.each(function() {
+            $(this).children("input").each(function () {
+                var element = $(this);
+                element.removeClass("error");
+                validate(element, ctx);
+            });
+        });
+
+        if (ctx.errors == 0) {
+            this.submit();
+        }
+
+        return result;
+    };
+
+
+    var validate = function (e, ctx) {
+        var args = [];
+        args.push(ctx);
+        args.push($.trim(e.val()));
         methods = e.attr('class').split(' ');
-        console.log("validating " + methods);
         $.each(methods, function() {
             var method = validators[this];
             if (method != null) {
                 method.apply(e, args)
             }
         });
-    }
-
-    var validators = {
-        not_empty : function (ctx) {
-            console.log("not empty to: " + this + ", ctx: " + ctx);
-            this.addClass("error")
-            this.after('<br/><p class="error">no puede estar vac&iacute;o</p>');
-            ctx.errors++;
-        }
     };
 
-    $.fn.valida = function() {
-        var ctx = {
-            errors : 0
-        };
-        args = [];
-        args.push(ctx);
-        var result = this.each(function() {
-            $(this).children("input").each(function () {
-                validate($(this), args);
-            });
-        });
-        console.log("errors: " + ctx.errors)
-        return result;
-    }
+
+    var addError = function(message, element, ctx) {
+        element.addClass("error");
+        element.after('<p class="error">' + message +'</p>');
+        ctx.errors++;
+    };
 
 })(jQuery);
 

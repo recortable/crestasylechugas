@@ -1,18 +1,14 @@
 
 
-<h1>Añadir un documento</h1>
+<h1>Crear un mensaje</h1>
 
-<% form_for(@document) do |f| %>
-  <%= f.error_messages %>
-
-  <%= f.hidden_field :dialect %>
-  <%= f.label :body %>
-  <%= f.text_area :body, :id => 'editor' %><br/>
-  <%= f.submit "Create" %><br/>
+<% form_tag(@document) do %>
+  <%= field_text 'Título', :clip, :title %>
+  <%= field_text 'Descripción', :clip, :description %>
+  <%= field_select 'Destinatario', :message, :recipiet, Group.all.collect {|p| [ p.name, p.id ] } %>
+  <%= text_area_tag :body, nil, :id => 'editor' %>
+  <%= field_submit 'Enviar mensaje', :new_doc %>
 <% end %>
-
-<%= link_to 'Back', documents_path %>
-
 
 
 <% content_for :header do -%>

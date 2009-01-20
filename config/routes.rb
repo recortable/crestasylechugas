@@ -1,18 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :tags
-
+  map.resources :labels
   map.resources :archives
-
   map.resources :documents
-
   map.resources :clips
-
   map.resources :groups
-
   map.resources :users
-
-
-  map.resource :users
 
   map.root :controller => 'cyl'
 
