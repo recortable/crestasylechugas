@@ -1,0 +1,14 @@
+<div class="actions">
+  <%= link_to 'Crear entrada', {:action => 'blog_new'}, :class => 'button' %>
+</div>
+
+<h1>Entradas del blog</h1>
+<table>
+  <% for post in Clip.posts -%>
+    <tr>
+      <td class="info"><%= clip_info post %></td>
+      <td class="title"><%= Document.find(post.content_id).title %> </td>
+      <td class="description"><%= link_to 'editar', {:action => 'blog_edit', :id => post.id}, :class => 'button' %></td>
+    </tr>
+  <% end -%>
+</table>

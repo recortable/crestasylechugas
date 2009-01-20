@@ -29,13 +29,16 @@ ActiveRecord::Schema.define(:version => 20090119201232) do
     t.string   "content_class"
     t.string   "content_type"
     t.integer  "content_id"
+    t.integer  "recipient_id",  :null => false
     t.integer  "user_id",       :null => false
+    t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "documents", :force => true do |t|
     t.string   "dialect"
+    t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"

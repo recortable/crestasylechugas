@@ -1,0 +1,8 @@
+<h1>Crear una entrada de blog</h1>
+
+<% form_tag( {:action => 'blog_create'}, :id => 'blog_create') do -%>
+  <%= field_text 'Título', :blog, :title, :validate => [:not_empty] %>
+  <%=  field_select 'Dialecto', :blog, :dialect, Document::DIALECTS %>
+  <%= field_area 'Contenido',  :blog, :body %>
+  <%= field_submit 'Crear entrada', :blog_create %>
+<% end -%>

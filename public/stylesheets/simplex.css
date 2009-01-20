@@ -7,7 +7,7 @@ html {
 }
 
 h1, h2, h3 {display: block; letter-spacing: -0.05em; line-height: 1em;
-  color: rgba(255, 255, 255, 0.9)}
+    color: rgba(255, 255, 255, 0.9)}
 
 h1 { font-size: 3em;  margin: 1em 0 0.5em 20%; font-weight: bold;}
 
@@ -17,41 +17,41 @@ h2 { font-size: 1.5em; margin-top: 2em; padding: 0.5em 0 0.5em 20%;
 a {text-decoration: none;}
 a:hover {}
 a.button {display: block; float: left; margin: 0.3em 0.1em; padding: 0.2em 0.8em 0.2em 0.8em;
-  background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.7);}
+    background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.7);}
 a.button:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 30, 1);}
 
 .notice {display: block; margin: 0 10%; padding: 0.2em 0.8em 0.2em 0.8em; text-align: center;
-  background-color: rgba(255, 138, 0, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9);}
+    background-color: rgba(255, 138, 0, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9);}
 
 .page {width: 60em; margin: 2em auto;}
 
 .navigation {width: 100%; overflow: hidden; 
-  border-top: 1px solid rgba(30, 40, 30, 0.4); border-bottom: 1px solid rgba(30, 40, 30, 0.4);}
+    border-top: 1px solid rgba(30, 40, 30, 0.4); border-bottom: 1px solid rgba(30, 40, 30, 0.4);}
 .navigation a {display: block; float: left; margin: 0.2em 1em; color: black;letter-spacing:-0.05em;}
 .navigation a:hover {color: rgba(255, 255, 255, 0.8); margin-bottom: 0; border-bottom: 0.2em solid rgba(30, 40, 30, 0.4);}
 .navigation .login {float: right; margin: 0.2em 1em 0 0;}
 .navigation .login a {display: inline;  margin: 0; padding: 0; float: none; color: rgba(255, 255, 255, 0.8);}
 
 .quick {float: right; margin-top: 3em; width: 18%;}
-.content {width: 80%;}
+.content {width: 100%;}
 .labels a {display: block; padding-left: 0.5em;
-   color: rgba(0, 0, 0, 0.7); border-top: 1px solid rgba(30, 40, 30, 0.4);
+    color: rgba(0, 0, 0, 0.7); border-top: 1px solid rgba(30, 40, 30, 0.4);
 }
 .labels a:hover {
-   color: rgba(255, 255, 255, 0.7); background-color: rgba(0, 0, 0, 0.3); 
+    color: rgba(255, 255, 255, 0.7); background-color: rgba(0, 0, 0, 0.3);
 }
 
 form label {display: block; float: left; width: 18%; margin-right: 2%; text-align: right; margin-top: 4px;}
-form input {display: block; float: left;}
-form input[type=text], form input[type=password] {width: 60%; border: 1px solid white; margin: 2px; padding: 2px;
-  background-color: rgba(255, 255, 255, 0.8);}
+form p.info {display: block; float: left; width: 60%; margin-top: 0.2em; color: rgba(0, 0, 0, 0.6); font-weight: bold;}
+form input, form textarea {display: block; float: left;}
+form input[type=text], form input[type=password], form textarea  {width: 60%; border: 1px solid white; margin: 2px; padding: 2px;
+    background-color: rgba(255, 255, 255, 0.8);}
 form select {width: 60%; margin: 0.3em 0; }
 form select {width: 20%;}
 form input.error {border: 1px solid #c00;}
-
+form textarea {height: 20em;}
 form input[type=submit] {margin-top: 0.5em;}
 form br {clear: both;}
-form textarea {width: 80%;}
 form a.submit {font-size: 0.9em;}
 form p.error {margin-left: 20%; color: #c00; clear: both;}
 
@@ -60,14 +60,18 @@ form p.error {margin-left: 20%; color: #c00; clear: both;}
 table { width: 100%;
     color: rgba(30, 40, 30, 0.6); }
 tr {border-top: 1px solid rgba(30, 40, 30, 0.4);}
-td {vertical-align: bottom; padding: 0.5em;}
-td.date {width: 20%;}
-td.title  {padding: 0.25em 0; font-size: 2em; width: 20%; letter-spacing:-0.05em; line-height:1em;}
+td {vertical-align: top; padding: 0.5em;}
+td.info {text-align: right; width: 20%; font-size: 0.8em; font-weight: bold;}
+td.info label {font-weight: normal;}
+td.title  {padding: 0.25em 0; font-size: 2em; width: 30%; letter-spacing:-0.05em; line-height:1em;}
 td.title a {color:rgba(30, 40, 30, 0.9); }
 td.title a:hover {color:rgba(0, 10, 0, 0.9); }
-
 td.description {font-size:0.75em; line-height:1.125em;}
 
+td.blog {vertical-align: top;}
+td.blog h1 {display: block; font-size: 1.5em; float: left; margin: 0 0.5em 0 0;
+    color:rgba(30, 40, 30, 0.6); }
+
 td.links a {font-size: 0.8em; display: block; float: left; margin: 0.2em; padding: 0em 0.8em 0.2em 0.8em;
-  background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9); }
+    background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9); }
 td.links a:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 30, 1);}

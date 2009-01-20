@@ -8,8 +8,7 @@ class AdminController < ApplicationController
   def create_group
     Group.transaction do
       g = Group.create(params[:group])
-      Clip.create(:title => 'Nuevo grupo', :description => "Celebramos la creación del grupo #{g.name}",
-        :content_class => 'Group', :content_type => 'group', :content_id => g.id, :user_id => @current.id)
+      g.new_clip(@current).save
       show_admin 'Grupo creado con éxito'
     end
   end

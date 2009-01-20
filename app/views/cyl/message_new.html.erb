@@ -1,0 +1,10 @@
+<h1>Enviar un nuevo mensaje</h1>
+
+<% form_tag({:action => 'message_create'}, :id => 'message_create')  do -%>
+  <%= field_info 'De', @current.name %>
+  <%= field_select 'Para', :message, :to, Group.all.collect {|p| [ p.name, p.id ] }   %>
+  <%= field_select 'Tipo', :message, :type, Label.all.collect {|p| [ p.name, p.id ] }   %>
+  <%= field_text 'Asunto', :message, :subject %>
+  <%= field_area 'Texto', :message, :body %>
+  <%= field_submit 'Enviar mensaje', :message_create %>
+<% end -%>

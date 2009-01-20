@@ -12,14 +12,15 @@ class CreateGroups < ActiveRecord::Migration
       t.references :user
     end
 
-    cyl = Group.new(:name => 'CyL', :gak => false, :description => 'tod@s estamos en Crestas y Lechugas')
+    cyl = Group.new(:id => Group.get(:cyl), :name => 'CyL', :gak => false, :description => 'Tod@s estamos en Crestas y Lechugas.')
     cyl.users << User.find(:all)
     cyl.save
 
-    ci = Group.create(:name => 'comisión técnica', :gak => false,
-      :description => 'se encarga de todas las labores guapas guapas de la hüerta')
-    ci.users << User.find(1)
+    ci = Group.create(:id => Group.get(:web), :name => 'Administración web', :gak => false,
+      :description => 'Se encargan de mantener la web de Crestas y Lechugas.')
+    ci.users << User.find(:all)
     ci.save
+
   end
 
   def self.down

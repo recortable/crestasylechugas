@@ -12,15 +12,20 @@
   </head>
   <body>
     <div class="page">
-      <div class="navigation"><%= link_to 'Gente', users_path %><%= link_to 'Grupos', groups_path %>
-        <%= link_to 'Clips', clips_path %><%= link_to 'Entradas', documents_path %>
+      <div class="navigation"><%= link_to 'Blog', :controller => 'cyl', :action => 'blog' %>
+      <%= link_to 'Calendario', :controller => 'cyl', :action => 'calendario' %>
+      <%= link_to 'Mensajes', :controller => 'cyl', :action => 'message_new' %>
+<%= link_to 'Gente', users_path %><%= link_to 'Grupos', groups_path %>
+        <%= link_to 'Clips', clips_path %>
         <div class="login">hola, <%= link_to @current.name, @current %>.
         <%= link_to('Eres administrador', :controller => 'admin' ) if @current.admin %>.
         <%= link_to 'Salir', :controller => 'cyl', :action => 'logout' %></div>
       </div>
+      <!--
       <div class="quick">
         <ul class="labels"><% for label in Label.all -%><li><%= link_to label.name, label %></li><% end -%></ul>
       </div>
+      -->
       <div class="content"><%= yield %></div>
     </div>
   </body>

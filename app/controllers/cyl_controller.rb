@@ -42,6 +42,18 @@ class CylController < ApplicationController
     end
   end
 
+  def blog_new
+  end
+
+  def blog_create
+    Document.transaction do
+      d = Document.create(params[:blog])
+      Clip.create(:title => 'Entrada al blog', :description => d.summary, :content_class => 'Document',
+        :content_type => 'blog', :recipient_id => 1, :user_id => @current.id, :content_id => d.id )
+      redirect_to :action => 'blog'
+    end
+  end
+
   private
   def render_login(error = nil)
     flash[:error] = error
