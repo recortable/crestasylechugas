@@ -1,0 +1,9 @@
+
+<% content_for :header do %>
+    <%= stylesheet_link_tag 'calendar/grey/style.css'  %>
+<% end %>
+
+<h1>Calendario de actividades y eventos</h1>
+
+<%=  calendar(:year => 2005, :month => 6) %>
+

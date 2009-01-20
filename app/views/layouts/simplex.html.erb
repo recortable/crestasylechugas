@@ -23,11 +23,6 @@
         <%= link_to('Eres administrador', :controller => 'admin' ) if @current.admin %>.
         <%= link_to 'Salir', :controller => 'cyl', :action => 'logout' %></div>
       </div>
-      <!--
-      <div class="quick">
-        <ul class="labels"><% for label in Label.all -%><li><%= link_to label.name, label %></li><% end -%></ul>
-      </div>
-      -->
       <div class="content"><%= yield %></div>
     </div>
   </body>

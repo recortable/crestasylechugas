@@ -2,4 +2,7 @@ log
 tmp 
 config/database.yml
 nbproject
+db/development.sqlite3
+vendor/plugins/calendar_helper/rdoc
+
 

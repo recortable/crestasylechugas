@@ -1,6 +1,4 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :labels
-  map.resources :archives
+ActionController::Routing::Routes.draw do |map|  map.resources :archives
   map.resources :documents
   map.resources :clips
   map.resources :groups
