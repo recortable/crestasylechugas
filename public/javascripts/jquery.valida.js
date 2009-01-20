@@ -1,5 +1,13 @@
 
 (function ($) {
+
+  if (typeof console == "undefined" || typeof console.log == "undefined") {
+    console = {
+      log : function() {
+      }
+    };
+  }
+
     var validators = {
         not_empty : function (ctx, text) {
             if (text == "") {

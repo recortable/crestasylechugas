@@ -1,0 +1,44 @@
+http://www.letor.ca/post/rails-and-google-mail
+
+
+Rails and Google Mail
+
+December 19, 2008
+
+Configuring Ruby on Rails to use Gmail's SMTP server to send outbound email from your website can be tricky.
+
+Connecting on port 25 does not work, we'll have to use port 587 and TLS (a version of SSL). To enable TLS in Rails we have to install action_mailer_tls plugin.
+
+script/plugin install http://code.openrain.com/rails/action_mailer_tls/
+
+↓ output ↓
+
++ ./README
++ ./init.rb
++ ./lib/smtp_tls.rb
++ ./sample/mailer.yml.sample
++ ./sample/smtp_gmail.rb
+
+Copy files mailer.yml.sample and smtp_gmail.rb into config/initializers directory.
+
+Rename file mailer.yml.sample into mailer.yml. Update file with your credentials. Notice that we are using port 587 and plain authentication.
+mailer.yml
+
+--- 
+  :address: smtp.gmail.com
+  :port: 587
+  :user_name: email@dress.com
+  :password: h@ckme
+  :authentication: :plain
+
+The newly copied smtp_gmail.rb will be executed when server starts and will load mail.yml to setup ActionMailer.
+smtp_gmail.rb
+
+require "smtp_tls"
+
+mailer_config = File.open("#{RAILS_ROOT}/config/mailer.yml") 
+mailer_options = YAML.load(mailer_config) 
+ActionMailer::Base.smtp_settings = mailer_options 
+
+Another thing to keep in mind, is that there's a limit of 500 messages per day
+
