@@ -6,13 +6,6 @@ html {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-h1, h2, h3 {display: block; letter-spacing: -0.05em; line-height: 1em;
-    color: rgba(255, 255, 255, 0.9)}
-
-h1 { font-size: 3em;  margin: 1em 0 0.5em 20%; font-weight: bold;}
-
-h2 { font-size: 1.5em; margin-top: 2em; padding: 0.5em 0 0.5em 20%;
-    border-top: 1px solid rgba(30, 40, 30, 0.4); }
 
 a {text-decoration: none;}
 a:hover {}
@@ -20,12 +13,25 @@ a.button {display: block; float: left; margin: 0.3em 0.1em; padding: 0.2em 0.8em
     background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.7);}
 a.button:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 30, 1);}
 
+h1, h2, h3 {display: block; letter-spacing: -0.05em; line-height: 1em;
+    color: rgba(255, 255, 255, 0.9);}
+
+h1 { font-size: 3em;  margin: 0em 0 0.5em 20%; font-weight: bold;}
+
+h2 { font-size: 1.5em; margin-top: 2em; padding: 0.5em 0 0.5em 20%;
+    border-top: 1px solid rgba(30, 40, 30, 0.4); }
+
+h3 {margin: 0 0 0.5em 20%;}
+h3 a {color: rgba(255, 255, 255, 0.9);}
+
+h1 a.button {float: none; display: inline; font-size: 0.5em;}
+
 .notice {display: block; margin: 0 10%; padding: 0.2em 0.8em 0.2em 0.8em; text-align: center;
     background-color: rgba(255, 138, 0, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9);}
 
 .page {width: 60em; margin: 2em auto;}
 
-.navigation {width: 100%; overflow: hidden; 
+.navigation {width: 100%; overflow: hidden; margin-bottom: 2em;
     border-top: 1px solid rgba(30, 40, 30, 0.4); border-bottom: 1px solid rgba(30, 40, 30, 0.4);}
 .navigation a {display: block; float: left; margin: 0.2em 1em; color: black;letter-spacing:-0.05em;}
 .navigation a:hover {color: rgba(255, 255, 255, 0.8); margin-bottom: 0; border-bottom: 0.2em solid rgba(30, 40, 30, 0.4);}
@@ -75,3 +81,14 @@ td.blog h1 {display: block; font-size: 1.5em; float: left; margin: 0 0.5em 0 0;
 td.links a {font-size: 0.8em; display: block; float: left; margin: 0.2em; padding: 0em 0.8em 0.2em 0.8em;
     background-color: rgba(255, 255, 255, 0.8); -moz-border-radius: 0.2em; color: rgba(30, 40, 30, 0.9); }
 td.links a:hover {background-color: rgba(255, 255, 255, 0.9); color: rgba(30, 40, 30, 1);}
+
+table.calendar {width: 100%; border-collapse: separate; border-spacing: 5px;}
+table.calendar tr {border-top: 0;}
+table.calendar tr.names td {height: 1em; border-top: 0px; color: rgba(255, 255, 255, 0.9)}
+table.calendar td.today {background-color: rgba(255, 225, 255, 0.3); border: 1px solid rgba(30, 40, 30, 0.6);}
+table.calendar td {width: 11%; height: 10em; padding: 0em; border-top: 1px solid rgba(30, 40, 30, 0.4); margin-right: 0.5em;}
+table.calendar p.number {float: left;}
+
+.calendar td a.new_event {float: none; font-size: 0.7em; pading: 0.1em 1em; margin: 0 0 2px 0;
+    background-color: rgba(255, 255, 255, 0.3);}
+.calendar td a.new_event:hover {background-color: rgba(255, 255, 255, 0.8);}

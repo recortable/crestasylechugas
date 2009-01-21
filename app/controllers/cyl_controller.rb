@@ -39,6 +39,13 @@ class CylController < ApplicationController
     end
   end
 
+  def calendar
+    today = Date.today
+    params[:month] ||= today.month
+    params[:year] ||= today.year
+    @cal = {:month => params[:month].to_i,  :year => params[:year].to_i}
+  end
+
   def blog_create
     Document.transaction do
       d = Document.create(params[:blog])

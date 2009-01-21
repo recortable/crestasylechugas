@@ -3,7 +3,6 @@
 <% form_tag({:action => 'message_create'}, :id => 'message_create')  do -%>
   <%= field_info 'De', @current.name %>
   <%= field_select 'Para', :clip, :recipient, Group.all.collect {|p| [ p.name, p.id ] }   %>
-  <%= field_select 'Tipo', :message, :type, Label.all.collect {|p| [ p.name, p.id ] }   %>
   <%= field_text 'Asunto', :message, :title %>
   <%= field_area 'Texto', :message, :body %>
   <%= field_submit 'Enviar mensaje', :message_create %>

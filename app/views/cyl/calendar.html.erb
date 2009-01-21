@@ -1,0 +1,11 @@
+
+<h3><%= link_to "Hoy es #{fecha Time.now}", :action => 'calendar', :month => nil, :year => nil %></h3>
+<h1><%= link_to '-', calendar_action(@cal, -1), :class => 'button' %> <%= mes(@cal[:month]) %> del <%= @cal[:year] %>
+<%= link_to '+', calendar_action(@cal, 1), :class => 'button' %></h1>
+
+<% monthly(@cal) do |month, date| -%>
+  <% if date.month == month -%>
+    <%= link_to date.day, {}, :class => 'button new_event' %>
+  <% end -%>
+<% end -%>
+
