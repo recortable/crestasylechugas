@@ -2,8 +2,14 @@
 
 <% form_tag({:action => 'message_create'}, :id => 'message_create')  do -%>
   <%= field_info 'De', @current.name %>
+  <%= field_help 'Recibirán este mensaje las personas integrantes del grupo al que lo envías. Ni más ni menos :)' %>
   <%= field_select 'Para', :clip, :recipient, Group.all.collect {|p| [ p.name, p.id ] }   %>
-  <%= field_text 'Asunto', :message, :title %>
+  <%= field_help 'Intenta ser concisa...' %>
+  <%= field_text 'Asunto', :message, :title, :validate => [:not_empty] %>
+  <%= field_help 'Suéltanoslo!' %>
   <%= field_area 'Texto', :message, :body %>
+  <%= field_help 'Ayúdanos a organizar el contenido. Intenta reutilizar las etiquetas que ya existen. Separa por comas. ' <<
+  '(Por ejemplo: "huerta, urgente")' %>
+  <%= field_text 'Etiquetas', :clip, :tag_list %>
   <%= field_submit 'Enviar mensaje', :message_create, :back %>
 <% end -%>

@@ -87,6 +87,13 @@ class CylController < ApplicationController
     end
   end
 
+  def update_tags
+    clip = Clip.find(params[:id])
+    clip.tag_list = params[:clip][:tags]
+    clip.save
+    redirect_to clip
+  end
+
   private
   def render_login(error = nil)
     flash[:error] = error

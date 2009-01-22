@@ -1,14 +1,20 @@
 class Clip < ActiveRecord::Base
+  acts_as_taggable
+
   belongs_to :user
   belongs_to :recipient, :class_name => 'Group'
 
   named_scope :posts, :conditions => {:content_type => 'blog'}, :order => 'id desc'
   named_scope :messages, :conditions => {:content_type => 'message'}, :order => 'id desc'
 
-  after_save :create_pendings
+  after_create :create_pendings
 
   def document
     @document ||= Document.find(:first, :conditions => {:id => self.content_id})
+  end
+
+  def document?
+    !document.nil?
   end
 
   private

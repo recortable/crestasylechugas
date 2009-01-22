@@ -1,13 +1,4 @@
 <h1>Qué pasa en nuestra web...</h1>
 
-<table>
-<% for clip in @clips %>
-  <tr>
-    <td class="info"><%= clip_info clip %></td>
-    <td class="title"><%=h clip.title %></td>
-    <td class="description blog"><%= render_clip clip %></td>
-  </tr>
-<% end %>
-</table>
-
+<%= render :partial => 'list', :object => @clips %>
 

@@ -28,7 +28,8 @@ end
 
   def clip_info(clip)
     content_tag( :p, content_tag( :label, 'publicado ') <<  fecha(clip.created_at) ) <<
-      content_tag(:p, content_tag(:label, 'de ' ) << clip.user.name << content_tag(:label, ' para ') << clip.recipient.name)
+      content_tag(:p, content_tag(:label, 'de ' ) << link_to(clip.user.name, clip.user) << 
+        content_tag(:label, ' para ') << link_to(clip.recipient.name, clip.recipient) )
   end
 
   def flash_div(name)

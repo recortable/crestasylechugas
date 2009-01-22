@@ -2,7 +2,7 @@
 <% for clip in list %>
   <tr>
     <td class="info"><%= clip_info clip %></td>
-    <td class="title"><%=h clip.title %></td>
+    <td class="title"><%= link_to h(clip.title), clip %></td>
     <td class="description blog"><%= render_clip clip %></td>
   </tr>
 <% end %>
