@@ -1,11 +1,8 @@
 <div class="actions">
   <%= link_to 'Tus datos', @current, :class => 'button'  %>
+  <%= link_to 'Nuevo mensaje', {:action => 'message_new'}, :class => 'button' %>
+  <%= link_to 'Crear entrada de blog', cyl(:blog_new), :class => 'button' %>
 </div>
 
-<h1>Actividad en tus grupos</h1>
-
-<% for group in @current.groups %>
-<h2><%= group.name %></h2>
-<%= render :partial => '/clips/list', :object => group.clips %>
-<% end -%>
-<h2>Bandeja de entrada</h1>
+<h1>Pendientes de leer</h1>
+<%= render :partial => '/clips/list', :object => @current.clips %>

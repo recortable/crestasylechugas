@@ -7,5 +7,5 @@
     '<a href="#" target="_blank">textile</a>' %>
   <%=  field_select 'Dialecto', :blog, :dialect, Document::DIALECTS %>
   <%= field_area 'Contenido',  :blog, :body %>
-  <%= field_submit 'Crear entrada', :blog_create %>
+  <%= field_submit 'Crear entrada', :blog_create, :back %>
 <% end -%>

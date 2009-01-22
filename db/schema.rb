@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090117234222) do
+ActiveRecord::Schema.define(:version => 20090122032700) do
 
   create_table "archives", :force => true do |t|
     t.string   "content_type"
@@ -59,13 +59,17 @@ ActiveRecord::Schema.define(:version => 20090117234222) do
     t.integer "user_id"
   end
 
+  create_table "pendings", :force => true do |t|
+    t.integer "user_id"
+    t.integer "clip_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "pass"
     t.string   "movil"
     t.string   "fijo"
-    t.string   "color"
     t.boolean  "admin",      :default => false
     t.boolean  "active",     :default => true
     t.datetime "access"

@@ -9,7 +9,7 @@
 <% end -%>
 
 <h2>Mensajes a este grupo</h2>
-<%= render :partial => '/cyl/message_list', :object => @group.clips %>
+<%= render :partial => '/clips/list', :object => @group.clips %>
 
 <h2>Personas en este grupo</h2>
 <% for user in @group.users %><%= link_to user.name, user, :class => 'button' %><% end -%>

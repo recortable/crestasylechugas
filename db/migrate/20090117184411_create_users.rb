@@ -19,7 +19,7 @@ class CreateUsers < ActiveRecord::Migration
     User.create(:name => 'Dani', :email => 'dani', 
       :pass => 'dani', :admin => 'true',
       :movil => '661913226', :fijo => '954916069')
-    User.create(:name => 'Cris', :email => 'cris', :pass => 'cris', )
+    User.create(:name => 'Cris', :email => 'cris', :pass => 'cris')
   end
 
   def self.down
