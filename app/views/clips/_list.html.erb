@@ -1,7 +1,5 @@
-<h1>Qué pasa en nuestra web...</h1>
-
 <table>
-<% for clip in @clips %>
+<% for clip in list %>
   <tr>
     <td class="info"><%= clip_info clip %></td>
     <td class="title"><%=h clip.title %></td>

@@ -3,6 +3,11 @@ class CylController < ApplicationController
   layout 'simplex'
 
   def index
+    render :action => 'crestas', :layout => 'portal'
+  end
+
+  def crestas
+    render :action => 'crestas', :layout => 'portal'
   end
 
   def entrar
@@ -16,13 +21,20 @@ class CylController < ApplicationController
       render_login 'Ese email no está registrado'
     elsif u.pass == ""
       session[:user_id] = u.id
+      session[:color] = params[:user][:color]
       redirect_to :action => 'change_password'
     elsif u.pass != params[:pass]
       render_login 'La contraseña no es correcta'
     else
       session[:user_id] = u.id
-      redirect_to :controller => 'users'
+      session[:color] = params[:user][:color]
+      redirect_to :action => 'dashboard'
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to :action => 'crestas'
   end
 
   def change_password
@@ -46,6 +58,19 @@ class CylController < ApplicationController
     @cal = {:month => params[:month].to_i,  :year => params[:year].to_i}
   end
 
+  def event_new
+    @date = Date.from_db(params[:date])
+  end
+
+  def event_create
+    fecha = Date.from_db(params[:clip][:date]).fecha
+    Document.transaction do
+      d = Document.create(params[:event])
+      d.new_clip("Evento el #{fecha}", 'event', @current, params[:clip][:recipient], params[:clip][:date]).save
+      redirect_to :action => 'calendar'
+    end
+  end
+
   def blog_create
     Document.transaction do
       d = Document.create(params[:blog])
@@ -65,6 +90,6 @@ class CylController < ApplicationController
   private
   def render_login(error = nil)
     flash[:error] = error
-    render :action => 'entrar', :layout => 'login'
+    render :action => 'entrar'
   end
 end

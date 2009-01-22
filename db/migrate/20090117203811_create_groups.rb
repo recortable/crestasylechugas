@@ -18,7 +18,7 @@ class CreateGroups < ActiveRecord::Migration
 
     ci = Group.create(:id => Group.get(:web), :name => 'Administración web', :gak => false,
       :description => 'Se encargan de mantener la web de Crestas y Lechugas.')
-    ci.users << User.find(:all)
+    ci.users << User.find(:all, :conditions =>{:admin => true})
     ci.save
 
   end

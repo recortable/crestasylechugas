@@ -8,9 +8,11 @@ class CreateClips < ActiveRecord::Migration
       t.references 'content' 
       t.references 'recipient', :null => false
       t.references 'user', :null => false
-      t.timestamp 'date'
+      t.string 'date', :length => 8
       t.timestamps
     end
+
+    add_index :clips, :date
   end
 
   def self.down

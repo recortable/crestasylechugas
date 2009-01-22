@@ -1,3 +1,23 @@
+<div class="actions">
+  <% div_if @current == @user do %>
+    <%= link_to('Tus actividades', cyl(:dashboard), :class => 'button') %>
+    <%= link_to('Modificar datos', edit_user_path(@user), :class => 'button') %>
+    <%= link_to('Cambiar contraseña', cyl(:new_password), :class => 'button') %>
+  <% end -%>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h1><%= @user.name %></h1>
+<p class="help">Atención: estos datos están aquí (y sólo son visibles una vez introducida la clave) para
+  que las personas de crestas
+  y lechugas podamos contactar fácilmente las unas con los otros. Por favor, úsalos con cautela
+y no los publiques por ahí...</p>
+<% form_tag do %>
+  <%= field_info 'Email', @user.email %>
+  <%= field_info 'Móvil', @user.movil %>
+  <%= field_info 'Fijo', @user.fijo %>
+<%  end -%>
+
+<h2>Grupos</h2>
+<% for group in @user.groups %>
+  <%= link_to group.name, group, :class => "button" %>
+<% end -%>

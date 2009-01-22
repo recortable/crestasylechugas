@@ -4,6 +4,24 @@ module ApplicationHelper
   include CylFormsHelper
   include MonthlyHelper
 
+  def cyl(action)
+    {:controller => 'cyl', :action => action.to_s}
+  end
+
+  def div_unless(condition, &block)
+    concat( content_tag(:div, capture(&block), :class => 'admin'), block.binding) unless condition
+  end
+
+  def div_if(condition, &block)
+    concat( content_tag(:div, capture(&block), :class => 'admin'), block.binding) if condition
+  end
+
+  def user_area(&block)
+  if !@current.nil?
+    concat content_tag(:div, capture(&block), :class => 'admin'), block.binding
+  end
+end
+
   def title(page_title)
     content_for(:title) { page_title }
   end
@@ -21,4 +39,12 @@ module ApplicationHelper
     date.strftime("%d/%m/%Y")
   end
 
+  DIAS = %w(domingo lunes martes miércoles jueves viernes sábado)
+  def day_of(date)
+    DIAS[date.wday]
+  end
+
+  def ucolor
+    session[:color].nil? ? '' : session[:color]
+  end
 end

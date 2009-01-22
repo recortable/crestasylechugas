@@ -5,7 +5,14 @@
 
 <% monthly(@cal) do |month, date| -%>
   <% if date.month == month -%>
-    <%= link_to date.day, {}, :class => 'button new_event' %>
+    <%= link_to date.day, {:action => 'event_new', :date => date.to_db},
+      :class => 'button new_event' %>
+    <% for event in Clip.find_all_by_date(date.to_db) do %>
+        <%= link_to event.description, {:action => 'show_event', :id => 'event'}, :class => 'event' %>
+      <% end -%>
+
+<%= link_to 'Huerta: 0 peonadas', {}, :class => 'event peonadas' %>
+ 
+    <% end -%>
   <% end -%>
-<% end -%>
 

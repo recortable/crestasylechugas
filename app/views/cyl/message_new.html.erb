@@ -5,5 +5,5 @@
   <%= field_select 'Para', :clip, :recipient, Group.all.collect {|p| [ p.name, p.id ] }   %>
   <%= field_text 'Asunto', :message, :title %>
   <%= field_area 'Texto', :message, :body %>
-  <%= field_submit 'Enviar mensaje', :message_create %>
+  <%= field_submit 'Enviar mensaje', :message_create, {:action => 'message'} %>
 <% end -%>

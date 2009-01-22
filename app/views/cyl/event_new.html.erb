@@ -1,0 +1,12 @@
+<h1>Nuevo evento el <%= day_of @date %> <%= fecha @date %></h1>
+
+<% form_tag({:action => 'event_create'}, :id => 'event_create') do %>
+  <%= field_hidden :clip, :date, @date.to_db %>
+  <%= field_help "Que sea breve, explícito y descriptivo, porfi" %>
+  <%= field_text 'Título', :event, :title, :validate => [:not_empty] %>
+  <%= field_help "¿A quién va dirigido este evento? Si pones público, aparecerá en la web y cualquiera podrá verlo" %>
+  <%= field_select 'Para', :clip, :recipient, Group.all.collect {|p| [ p.name, p.id ] }   %>
+  <%= field_help 'Cuéntanos de qué se trata...' %>
+  <%= field_area 'Asunto', :event, :body, :validate => [:length_string] %>
+  <%= field_submit 'Crear evento', :event_create, {:action => 'calendar'} %>
+<% end -%>

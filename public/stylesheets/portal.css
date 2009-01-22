@@ -1,0 +1,28 @@
+
+body {font-family: "Garamond",Times,serif;}
+
+a {color: black;}
+
+.page {width: 40em; margin: 0 auto; border-left: 1px solid gray; border-right: 1px solid gray;}
+
+.container {width: 100%; overflow: hidden;}
+.head img {width: 30%; float: left;}
+.head h1 {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-left: 36%; font-size: 4em; font-weight: bold; margin-top: 0.2em;}
+
+.separate {display: block; width: 96%; margin: 0.5em 2%; padding: 0.5em 0; text-align: center;
+    border-top: 1px solid gray; border-bottom: 1px solid gray;}
+
+p.notice {display: block; background-color: #EFFF79; padding: 0.5em 1em; margin-bottom: 0.5em;}
+
+
+.blog {float: left; width: 60%; padding: 0 3%; border-right: 1px solid gray; padding-bottom: 3em;}
+.blog h2 {font-size: 2em;}
+
+.news {width: 30%; float: left; margin-left: 3%;}
+.news h1 {font-size: 1.5em; margin-top: 0.25em;}
+
+.images {}
+.images img { width: 45%;}
+
+.cosas p {margin: 2em 3%;}

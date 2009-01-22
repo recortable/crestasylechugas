@@ -17,8 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html if @user.id != @current.id # show.html.erb
-      format.html { render :action => 'work'} if @user.id == @current.id
+      format.html 
       format.xml  { render :xml => @user }
     end
   end

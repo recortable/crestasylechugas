@@ -1,0 +1,10 @@
+
+<table>
+  <% for message in message_list -%>
+    <tr>
+      <td class="info"><%= clip_info message %></td>
+      <td class="title"><%= message.document.title %></td>
+      <td class="description"><%= message.document.body %><%= link_to 'Responder', message, :class => 'button' %></td>
+    </tr>
+  <% end -%>
+</table>

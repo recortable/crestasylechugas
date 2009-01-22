@@ -1,0 +1,40 @@
+
+<div class="container head">
+  <%= image_tag 'cyl_logo.jpg' %>
+  <h1>Crestas y lechugas</h1>
+</div>
+<div class="container separate">
+  <p class="notice">Como puedes ver, estamos en construcción</p>
+  <p>Si eres de crestas y lechugas pincha <%= link_to 'aqui', :action => 'entrar' %> para entrar en la web</p>
+</div>
+
+<div class="container">
+  <div class="blog">
+    <% for blog in Clip.posts %>
+      <div class="post">
+        <h2><%= blog.document.title %></h2>
+      </div>
+    <% end %>
+  </div>
+  <div class="news">
+    <h1>Últimas noticias</h1>
+  </div>
+</div>
+<div class="container separate images">
+  <img src="http://farm4.static.flickr.com/3169/2565900770_6aa35ac383.jpg?v=0" />
+  <img src="http://farm4.static.flickr.com/3094/2645964185_03f250a6a9.jpg?v=0" />
+</div>
+
+<div class="container cosas">
+  <p>Tenemos mucho espacio para poner cosas, cosas, cosas, cosas, cosas, cosas, cosas,
+  cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas,
+  cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas,
+  cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas, cosas,
+  cosas, cosas, cosas, cosas, cosas, cosas</p>
+</div>
+
+<div class="container separate">Haz de este un mundo mejor!<br/>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">
+    <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/88x31.png" />
+  </a>.
+</div>

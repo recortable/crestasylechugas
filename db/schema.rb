@@ -31,10 +31,12 @@ ActiveRecord::Schema.define(:version => 20090117234222) do
     t.integer  "content_id"
     t.integer  "recipient_id",  :null => false
     t.integer  "user_id",       :null => false
-    t.datetime "date"
+    t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "clips", ["date"], :name => "index_clips_on_date"
 
   create_table "documents", :force => true do |t|
     t.string   "dialect"
@@ -61,6 +63,9 @@ ActiveRecord::Schema.define(:version => 20090117234222) do
     t.string   "name"
     t.string   "email"
     t.string   "pass"
+    t.string   "movil"
+    t.string   "fijo"
+    t.string   "color"
     t.boolean  "admin",      :default => false
     t.boolean  "active",     :default => true
     t.datetime "access"

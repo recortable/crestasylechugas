@@ -1,11 +1,36 @@
 
-<div class="login">
-<h1>Entra</h1>
-  <% form_tag( :action => 'login') do -%>
-    <%= flash_div :error %>
-    <label>email:</label><%= text_field_tag :email %><br/>
-    <label>contraseña:</label><%= password_field_tag :pass %><br/>
-    <label>&nbsp;</label><%= submit_tag 'Adelante!' %><br/>
-  <% end -%>
-</div>
 
+<h1>Entra en la web de<br/> crestasylechugas</h1>
+
+<p class="help">¿Cómo?, ¿que eres de crestas y no tienes clave? quizá no estés registrada...<br/>
+...escribe un mail amable a <a id="contact" href="#"> activa el javascript.... </a> y te dará la clave.</p>
+<p class="help">Otra cosa! esta web funciona (y me temo que funcionará) sólo si usas firefox como navegador.<br/>
+La mayoría ya lo usáis. Para las que no, es MUY sencillo de <a href="http://www.getfirefox.com">descargar e instalar</a></p>
+<p class="help">Y por último lo más importante: una vez dentro, puede haber mucha información sensible (emails,
+números de teléfono, etcétera) que no debería salir de ahí; es decir, te cuidado y NO escribas esos datos en mensajes, entradas
+de blog, eventos... para que esta información no se cuele en nuestra página de <a href="/">entrada</a>.... y después al google :-o</p>
+<p class="help">Ála, menos ordenador y más huertas!</p>
+<br/>
+<% form_tag( {:action => 'login'}, :id => 'form_login') do -%>
+  <%= flash_div :error %>
+  <label>Email</label><%= text_field_tag :email %><br/>
+  <label>Clave</label><%= password_field_tag :pass %><br/>
+  <%= field_select 'Color', :user, :color, User::COLORS %>
+  <%= field_submit 'Adelante!', :form_login %>
+<% end -%>
+
+<script type="text/javascript">
+  String.prototype.reverse = function(){
+    var splitext = this.split("");
+    var revertext = splitext.reverse();
+    var reversed = revertext.join("");
+    return reversed;
+  }
+  $(function() {
+    var name = "moc.liamgxbginad";
+    name = name.replace('x', '@');
+    var reversed = name.reverse();
+    $("#contact").html(reversed).attr('href', "mailto:" + reversed);
+  });
+
+</script>

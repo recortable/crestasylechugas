@@ -1,7 +1,6 @@
 
 
 html {
-    background-color: #58DF37;
     color: rgba(255, 255, 255, 0.8);
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -47,19 +46,26 @@ h1 a.button {float: none; display: inline; font-size: 0.5em;}
     color: rgba(255, 255, 255, 0.7); background-color: rgba(0, 0, 0, 0.3);
 }
 
+.actions {width: 100%; overflow: hidden; margin-bottom: 2em; margin-top: -2em;}
+
+
+p.help {clear: both; width: 60%; margin: 0.9em 0 0 20.5%;  font-size: 0.8em;
+   color: rgba(255, 255, 65, 0.9);}
+p.help a {color: rgba(255, 255, 65, 0.9); text-decoration: underline;}form input, form textarea {display: block; float: left;}
+p.info {display: block; float:left; width: 60%; margin: 0.2em 0 0 0; color: rgba(0, 0, 0, 0.6); font-weight: bold;}
+p.text {margin-left: 20%; width: 60%;}
+
 form label {display: block; float: left; width: 18%; margin-right: 2%; text-align: right; margin-top: 4px;}
-form p.info {display: block; float: left; width: 60%; margin-top: 0.2em; color: rgba(0, 0, 0, 0.6); font-weight: bold;}
-form input, form textarea {display: block; float: left;}
 form input[type=text], form input[type=password], form textarea  {width: 60%; border: 1px solid white; margin: 2px; padding: 2px;
     background-color: rgba(255, 255, 255, 0.8);}
 form select {width: 60%; margin: 0.3em 0; }
 form select {width: 20%;}
 form input.error {border: 1px solid #c00;}
-form textarea {height: 20em;}
+form textarea {height: 10em;}
 form input[type=submit] {margin-top: 0.5em;}
 form br {clear: both;}
-form a.submit {font-size: 0.9em;}
-form p.error {margin-left: 20%; color: #c00; clear: both;}
+form a {font-size: 0.9em;}
+form p.error {margin: 0 0 0 20.5%; color: #c00; clear: both;}
 
 .wysiwyg {margin: 1em 0; background-color: rgba(255, 255, 255, 0.8);}
 
@@ -86,9 +92,17 @@ table.calendar {width: 100%; border-collapse: separate; border-spacing: 5px;}
 table.calendar tr {border-top: 0;}
 table.calendar tr.names td {height: 1em; border-top: 0px; color: rgba(255, 255, 255, 0.9)}
 table.calendar td.today {background-color: rgba(255, 225, 255, 0.3); border: 1px solid rgba(30, 40, 30, 0.6);}
-table.calendar td {width: 11%; height: 10em; padding: 0em; border-top: 1px solid rgba(30, 40, 30, 0.4); margin-right: 0.5em;}
+table.calendar td {width: 11%;
+    min-height: 10em;
+    height: auto !important;
+    height: 10em;
+    padding: 0em 0 1em 0; border-top: 1px solid rgba(30, 40, 30, 0.4); margin-right: 0.5em;}
 table.calendar p.number {float: left;}
 
 .calendar td a.new_event {float: none; font-size: 0.7em; pading: 0.1em 1em; margin: 0 0 2px 0;
     background-color: rgba(255, 255, 255, 0.3);}
 .calendar td a.new_event:hover {background-color: rgba(255, 255, 255, 0.8);}
+.calendar td a.event {display: block; padding-left: 0.3em; font-size: 0.7em; color: rgba(0, 30, 0, 0.8);}
+.calendar td a.event:hover { background-color: rgba(0, 0, 0, 0.1);}
+.calendar a.peonadas {margin-top: 1em; border-bottom: 1px solid rgba(30, 40, 30, 0.6); }
+.calendar a h1 {font-size: 1em; color: rgba(0, 30, 0, 0.8); margin: 0;}

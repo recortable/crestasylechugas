@@ -3,8 +3,11 @@
 
 class ApplicationController < ActionController::Base
   include HoptoadNotifier::Catcher
+  
   helper :all # include all helpers, all the time
-  before_filter :load_user, :except => [:entrar, :login]
+  helper_method :user?
+
+  before_filter :load_user, :except => [:entrar, :login, :crestas]
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '31d03b77f168a275d41b7d10b31f4421'
@@ -14,6 +17,11 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
 
+  def user?
+    !session[:user_id].nil?
+  end
+
+  private
   def load_user
     puts "LOAD USER #{session[:user_id]}"
     if session[:user_id].nil?
