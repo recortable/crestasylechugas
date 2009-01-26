@@ -20,7 +20,7 @@ h1 { font-size: 3em;  margin: 0em 0 0.5em 20%; font-weight: bold;}
 h2 { font-size: 1.5em; margin-top: 2em; padding: 0.5em 0 0.5em 20%;
     border-top: 1px solid rgba(30, 40, 30, 0.4); }
 
-h3 {margin: 0 0 0.5em 20%;}
+h3 {margin: 0 0 0.5em 20%; font-size: 1.5em;}
 h3 a {color: rgba(255, 255, 255, 0.9);}
 
 h1 a.button {float: none; display: inline; font-size: 0.5em;}
@@ -39,10 +39,14 @@ h1 a.button {float: none; display: inline; font-size: 0.5em;}
 
 .quick {float: right; margin-top: 3em; width: 18%;}
 .content {width: 100%;}
-.labels a {display: block; padding-left: 0.5em;
-    color: rgba(0, 0, 0, 0.7); border-top: 1px solid rgba(30, 40, 30, 0.4);
+
+.tags {float: right; width: 15%; font-size: 0.7em;}
+.tags h1 {font-size: 1em; margin: 0; text-align: right; }
+.tags ul {display: none; margin-bottom: 1em;}
+.tags a {display: block; padding-left: 0.5em; 
+    color: rgba(0, 0, 0, 0.7); border-bottom: 1px solid rgba(30, 40, 30, 0.4);
 }
-.labels a:hover {
+.tags a:hover {
     color: rgba(255, 255, 255, 0.7); background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -106,3 +110,5 @@ table.calendar p.number {float: left;}
 .calendar td a.event:hover { background-color: rgba(0, 0, 0, 0.1);}
 .calendar a.peonadas {margin-top: 1em; border-bottom: 1px solid rgba(30, 40, 30, 0.6); }
 .calendar a h1 {font-size: 1em; color: rgba(0, 30, 0, 0.8); margin: 0;}
+
+.body {background-color: rgba(0,30,0,0.2); padding: 2em 1em; width: 60%;}

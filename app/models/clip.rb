@@ -9,6 +9,16 @@ class Clip < ActiveRecord::Base
 
   after_create :create_pendings
 
+  def self.build(user, clip_params, doc_params = nil)
+    Clip.transaction do
+      document = doc_params.nil? ? nil : Document.create(doc_params)
+      class_method("#{clip_params[:content_type]}_params").call
+      params = clip_params.merge(clip_defaults)
+      Clip.create(params)
+    end
+  end
+
+
   def document
     @document ||= Document.find(:first, :conditions => {:id => self.content_id})
   end
@@ -16,6 +26,11 @@ class Clip < ActiveRecord::Base
   def document?
     !document.nil?
   end
+
+  def self.message_params
+    puts "hola"
+  end
+  
 
   private
   def create_pendings

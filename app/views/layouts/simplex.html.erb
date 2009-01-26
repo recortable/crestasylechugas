@@ -10,6 +10,13 @@
     <%= stylesheet_link_tag 'simplex' %>
     <%= yield :header %>
     <style type="text/css">html {background-color: <%= ucolor %>;}</style>
+
+    <script type="text/javascript">
+      $(function() {$(".tags h1").click(function() {
+          $(".tags ul").slideToggle();
+      })});
+    </script>
+
   </head>
   <body>
     <div class="page">
@@ -25,6 +32,7 @@
             <%= link_to 'Salir', :controller => 'cyl', :action => 'logout' %></div>
         </div>
       <% end -%>
+      <div class="tags"><h1>Etiquetas</h1><ul><% for tag in Clip.tag_counts -%><li><%= link_to tag %></li><% end -%></ul>  </div>
       <div class="content"><%= yield %></div>
     </div>
   </body>

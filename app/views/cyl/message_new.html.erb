@@ -1,6 +1,7 @@
 <h1>Enviar un nuevo mensaje</h1>
 
 <% form_tag({:action => 'message_create'}, :id => 'message_create')  do -%>
+  <%= field_hidden :clip, :content_type, 'message' %>
   <%= field_info 'De', @current.name %>
   <%= field_help 'Recibirán este mensaje las personas integrantes del grupo al que lo envías. Ni más ni menos :)' %>
   <%= field_select 'Para', :clip, :recipient, Group.all.collect {|p| [ p.name, p.id ] }   %>

@@ -6,10 +6,11 @@
   </div>
   <p><%= @clip.description %></p>
 <% elsif -%>
-  <h1><%= @clip.document.title %></h1>
+  <h3><%= @clip.title %></h3>
   <div class="text">
-      <%= clip_info @clip %><br/>
-    </div>
+    <%= clip_info @clip %><br/>
+  </div>
+  <h1><%= @clip.document.title %></h1>
   <div class="body text">
     <%= @clip.document.body %>
   </div>
@@ -19,9 +20,10 @@
     <%= field_submit 'Guarda etiquetas', :update_tags %>
   <% end -%>
   <h2>Respuestas</h2>
-    <% form_tag({:controller => 'cyl', :action => 'create_response', :id => @clip}, :id => 'create_response') do %>
+  <% form_tag({:controller => 'cyl', :action => 'response_create', :id => @clip}, :id => 'create_response') do %>
     <%= field_area 'Respuesta', :clip, :response %>
     <%= field_submit 'Enviar respuesta', :create_response %>
   <% end -%>
+
 <% end -%>
 

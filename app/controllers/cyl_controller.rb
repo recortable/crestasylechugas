@@ -62,6 +62,20 @@ class CylController < ApplicationController
     @date = Date.from_db(params[:date])
   end
 
+  def clip_create
+    clip = Clip.build(@current, params[:clip], params[:document])
+    flash[:notice] = clip.description
+    redirect_to clip
+  end
+
+  def message_create
+    Document.transaction do
+      d = Document.create(params[:message])
+      d.new_clip('Mensaje', 'message', @current, params[:clip][:recipient]).save
+      redirect_to :action => 'message'
+    end
+  end
+
   def event_create
     fecha = Date.from_db(params[:clip][:date]).fecha
     Document.transaction do
@@ -79,13 +93,13 @@ class CylController < ApplicationController
     end
   end
 
-  def message_create
-    Document.transaction do
-      d = Document.create(params[:message])
-      d.new_clip('Mensaje', 'message', @current, params[:clip][:recipient]).save
-      redirect_to :action => 'message'
-    end
+  def response_create
+    clip = Clip.find(params[:id])
+    clip.document.response(params[:clip][:response]).save
+    flash[:notice] = 'Respuesta creada'
   end
+
+
 
   def update_tags
     clip = Clip.find(params[:id])
