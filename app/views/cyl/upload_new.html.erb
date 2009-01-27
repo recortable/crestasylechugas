@@ -1,6 +1,6 @@
 <h1>Subir un fichero</h1>
 
-<% form_tag({:action => 'upload_create'}, :id => 'upload_create', :html => {:multipart => 'true'}) do -%>
+<% form_tag({:action => 'upload_create'}, :id => 'upload_create', :multipart => 'true') do -%>
   <%= field_hidden :clip, :content_type,  'file' %>
   <%= field_info t(:from), @current.name %>
   <%= field_help t(:from_group_help) %>
@@ -9,8 +9,8 @@
   <%= field_select 'Para', :clip, :recipient_id, Group.all.collect {|p| [ p.name, p.id ] }   %>
   <%= field_help t(:file_help) %>
   <%= field_file  t(:file), :document, :file %>
-  <%= field_help t(:help_upload_desc) %>
-  <%= field_area 'Descripción', :document, :body %>
+  <%= field_help t(:title_help) %>
+  <%= field_text t(:title), :document, :title %>
   <%= field_help t(:help_tags) %>
   <%= field_text 'Etiquetas', :clip, :tags %>
   <%= field_submit 'Subir fichero', :upload_create %>

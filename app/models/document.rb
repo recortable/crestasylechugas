@@ -2,6 +2,9 @@ class Document < ActiveRecord::Base
   DIALECTS = [:textile, :plain, :html]
 
   has_attached_file :file
+  attr_protected :file_file_name, :file_content_type, :file_size
+  validates_attachment_size :file, :less_than => 1.megabytes
+
   belongs_to :parent, :class_name => 'Document'
   has_many :children, :foreign_key => 'parent_id', :class_name => 'Document'
 

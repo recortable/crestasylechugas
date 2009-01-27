@@ -13,6 +13,9 @@
   <h1><%= @clip.document.title %></h1>
   <div class="body text">
     <%= @clip.document.body %>
+    <% if !@clip.document.file.name.nil? -%>
+      <%= @clip.document.file.file_name %>
+      <% end -%>
   </div>
   <% form_tag({:controller => 'cyl', :action => 'update_tags', :id => @clip}, :id => 'update_tags') do %>
     <%= field_help t(:tags_help) %>

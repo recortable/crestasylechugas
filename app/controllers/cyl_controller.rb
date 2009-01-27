@@ -81,8 +81,8 @@ class CylController < ApplicationController
   def upload_create
     Document.transaction do
       d = Document.create(params[:document])
-      Clip.create params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
-        :title => 'Nuevo fichero', :description => d.body)
+      c = Clip.create params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
+        :title => "Nuevo fichero #{d.title}", :description => d.title)
       redirect_to_dashboard
     end
   end
@@ -92,7 +92,7 @@ class CylController < ApplicationController
     Document.transaction do
       d = Document.create(params[:event])
       Clip.create(params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
-          :title => "Evento el #{fecha}", :description => d.title))
+          :title => "Evento el '#{fecha}'", :description => d.title))
       redirect_to :action => 'calendar'
     end
   end
