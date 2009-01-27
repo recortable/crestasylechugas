@@ -3,7 +3,7 @@ body {font-family: "Garamond",Times,serif;}
 
 a {color: black;}
 
-.page {width: 40em; margin: 0 auto; border-left: 1px solid gray; border-right: 1px solid gray;}
+.page {width: 40em; margin: 0 auto; } /*border-left: 1px solid gray; border-right: 1px solid gray;}*/
 
 .container {width: 100%; overflow: hidden;}
 .head img {width: 30%; float: left;}

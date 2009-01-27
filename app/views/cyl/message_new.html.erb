@@ -9,8 +9,7 @@
   <%= field_text 'Asunto', :message, :title, :validate => [:not_empty] %>
   <%= field_help 'Suéltanoslo!' %>
   <%= field_area 'Texto', :message, :body %>
-  <%= field_help 'Ayúdanos a organizar el contenido. Intenta reutilizar las etiquetas que ya existen. Separa por comas. ' <<
-  '(Por ejemplo: "huerta, urgente")' %>
+  <%= field_help t(:help_tags) %>
   <%= field_text 'Etiquetas', :clip, :tag_list %>
   <%= field_submit 'Enviar mensaje', :message_create, :back %>
 <% end -%>

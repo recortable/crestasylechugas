@@ -1,0 +1,11 @@
+<h1>Subir un fichero</h1>
+
+<% form_tag({:action => 'upload_create'}, :id => 'upload_create', :html => {:multipart => 'true'}) do -%>
+  <%= field_help t(:help_upload) %>
+  <%= field_file 'Archivo', :archive, :uploaded_data %>
+  <%= field_help t(:help_upload_desc) %>
+  <%= field_area 'Descripción', :clip, :description %>
+  <%= field_help t(:help_tags) %>
+  <%= field_text 'Etiquetas', :clip, :tags %>
+  <%= field_submit 'Subir fichero', :upload_create %>
+<% end -%>

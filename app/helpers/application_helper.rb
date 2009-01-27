@@ -46,6 +46,6 @@ end
   end
 
   def ucolor
-    session[:color].nil? ? '' : session[:color]
+    session[:color].nil? ? '#58DF37' : session[:color]
   end
 end

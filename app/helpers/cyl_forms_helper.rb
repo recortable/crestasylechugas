@@ -40,5 +40,9 @@ module CylFormsHelper
       :onclick => "$('##{id}').valida();", :class => 'submit button') << cancel_button  << content_tag(:br)
   end
 
+  def field_file(label, group, name)
+    content_tag(:label, label) << file_field_tag("#{group}[#{name}]") << content_tag(:br)
+  end
+
 end
 

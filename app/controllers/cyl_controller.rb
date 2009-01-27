@@ -99,7 +99,12 @@ class CylController < ApplicationController
     flash[:notice] = 'Respuesta creada'
   end
 
-
+def upload_create
+  archive = Archive.create(params[:archive])
+  Clip.create(clip[:params].merge(:title => 'Fichero subido', :content_class => 'Archive',
+    :content_type => 'archive', :content_id => archive.id,
+    :user_id => @current.id))
+end
 
   def update_tags
     clip = Clip.find(params[:id])

@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|  map.resources :archives
   map.resources :groups
   map.resources :users
 
-  map.root :controller => 'cyl'
+  map.root :controller => 'cyl', :action => 'crestas'
 
   map.connect 'calendario/:month/:year', :controller => 'cyl', :action => 'calendar'
   map.connect 'calendario', :controller => 'cyl', :action => 'calendar'
