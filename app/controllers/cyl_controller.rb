@@ -72,7 +72,7 @@ class CylController < ApplicationController
     Document.transaction do
       d = Document.create(params[:message])
       Clip.create(params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
-        :title => "Nuevo mensaje", :description => d.summary))
+          :title => "Nuevo mensaje", :description => d.summary))
       redirect_to_dashboard
     end
   end
@@ -82,7 +82,7 @@ class CylController < ApplicationController
     Document.transaction do
       d = Document.create(params[:event])
       Clip.create(params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
-        :title => "Evento el #{fecha}", :description => d.title))
+          :title => "Evento el #{fecha}", :description => d.title))
       redirect_to :action => 'calendar'
     end
   end
@@ -97,8 +97,12 @@ class CylController < ApplicationController
 
   def response_create
     clip = Clip.find(params[:id])
-    clip.document.response(params[:clip][:response]).save
+    d = Document.create(params[:response])
+    Clip.create params[:clip].merge(:user_id => @current.id, :content_id => clip.content_id, :content_class => 'Document',
+      :title => "Respuesta a #{clip.title}", :description => d.summary,
+      :group_id => clip.group_id, :recipient_id => clip.recipient_id)
     flash[:notice] = 'Respuesta creada'
+    redirect_to_dashboard
   end
 
   def upload_create

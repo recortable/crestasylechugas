@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20090122043011) do
     t.string   "content_class"
     t.string   "content_type"
     t.integer  "content_id"
-    t.integer  "recipient_id",  :null => false
     t.integer  "user_id",       :null => false
     t.integer  "group_id"
+    t.integer  "recipient_id",  :null => false
     t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20090122043011) do
     t.string   "dialect"
     t.string   "title"
     t.text     "body"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

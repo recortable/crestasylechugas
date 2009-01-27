@@ -20,8 +20,12 @@
     <%= field_submit 'Guarda etiquetas', :update_tags %>
   <% end -%>
   <h2>Respuestas</h2>
+  <% for doc in @clip.document.children %>
+  <% end %>
   <% form_tag({:controller => 'cyl', :action => 'response_create', :id => @clip}, :id => 'create_response') do %>
-    <%= field_area 'Respuesta', :clip, :response %>
+    <%= field_hidden :clip, :content_type, 'response' %>
+    <%= field_hidden :response, :parent_id, @clip.document.id %>
+    <%= field_area t(:answer), :response, :body %>
     <%= field_submit 'Enviar respuesta', :create_response %>
   <% end -%>
 

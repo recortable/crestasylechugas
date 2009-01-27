@@ -8,4 +8,5 @@ es:
   from_group_help: "Creas esto como integrante ¿de qué grupo?"
   title: "Título"
   title_help: "Que sea breve, explícito y descriptivo, porfi"
-
+  answer: "Respuesta"
+  answer_help: "Puedes añadir un comentario/respuesta aquí"

@@ -4,6 +4,7 @@ class CreateDocuments < ActiveRecord::Migration
       t.string :dialect
       t.string :title
       t.text :body
+      t.references 'parent'
       t.timestamps
     end
   end

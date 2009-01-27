@@ -1,6 +1,9 @@
 class Document < ActiveRecord::Base
   DIALECTS = [:textile, :plain, :html]
 
+  belongs_to :parent, :class_name => 'Document'
+  has_many :children, :foreign_key => 'parent', :class_name => 'Document'
+
   def new_clip(title, type, user, recipient_id, date = nil)
     desc = type == 'event' ? "<h1>#{self.title}</h1>" : self.summary
     Clip.create(:title => title, :description => desc, :content_class => 'Document',
