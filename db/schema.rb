@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090122043011) do
     t.integer  "content_id"
     t.integer  "recipient_id",  :null => false
     t.integer  "user_id",       :null => false
+    t.integer  "group_id"
     t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,9 +48,10 @@ ActiveRecord::Schema.define(:version => 20090122043011) do
   end
 
   create_table "groups", :force => true do |t|
-    t.string   "name",        :null => false
-    t.string   "description", :null => false
-    t.boolean  "gak",         :null => false
+    t.string   "name",                       :null => false
+    t.string   "description",                :null => false
+    t.boolean  "gak",                        :null => false
+    t.integer  "cestas",      :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

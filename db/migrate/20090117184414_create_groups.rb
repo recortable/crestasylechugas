@@ -4,6 +4,7 @@ class CreateGroups < ActiveRecord::Migration
       t.string :name, :null => false
       t.string :description, :null => false
       t.boolean :gak, :null => false
+      t.integer :cestas, :null => false, :default => 0
       t.timestamps
     end
 

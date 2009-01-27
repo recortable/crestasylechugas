@@ -2,9 +2,11 @@
 
 <% form_tag({:action => 'message_create'}, :id => 'message_create')  do -%>
   <%= field_hidden :clip, :content_type, 'message' %>
-  <%= field_info 'De', @current.name %>
+  <%= field_info t(:from), @current.name %>
+  <%= field_help t(:from_group_help) %>
+  <%= field_select t(:from_group), :clip, :group_id, Group.all.collect {|p| [ p.name, p.id ] } %>
   <%= field_help 'Recibirán este mensaje las personas integrantes del grupo al que lo envías. Ni más ni menos :)' %>
-  <%= field_select 'Para', :clip, :recipient, Group.all.collect {|p| [ p.name, p.id ] }   %>
+  <%= field_select 'Para', :clip, :recipient_id, Group.all.collect {|p| [ p.name, p.id ] }   %>
   <%= field_help 'Intenta ser concisa...' %>
   <%= field_text 'Asunto', :message, :title, :validate => [:not_empty] %>
   <%= field_help 'Suéltanoslo!' %>

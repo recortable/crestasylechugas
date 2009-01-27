@@ -8,6 +8,7 @@ class CreateClips < ActiveRecord::Migration
       t.references 'content' 
       t.references 'recipient', :null => false
       t.references 'user', :null => false
+      t.references 'group'
       t.string 'date', :length => 8
       t.timestamps
     end

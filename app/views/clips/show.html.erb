@@ -15,7 +15,7 @@
     <%= @clip.document.body %>
   </div>
   <% form_tag({:controller => 'cyl', :action => 'update_tags', :id => @clip}, :id => 'update_tags') do %>
-    <%= field_help "Ayúdanos a organizar el contenido: ¡etiqueta tu també!" %>
+    <%= field_help t(:tags_help) %>
     <%= field_text 'Etiquetas', :clip, :tags, :value => @clip.tag_list %>
     <%= field_submit 'Guarda etiquetas', :update_tags %>
   <% end -%>

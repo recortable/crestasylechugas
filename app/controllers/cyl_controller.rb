@@ -71,8 +71,9 @@ class CylController < ApplicationController
   def message_create
     Document.transaction do
       d = Document.create(params[:message])
-      d.new_clip('Mensaje', 'message', @current, params[:clip][:recipient]).save
-      redirect_to :action => 'message'
+      Clip.create(params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
+        :title => "Nuevo mensaje", :description => d.summary))
+      redirect_to_dashboard
     end
   end
 
@@ -80,7 +81,8 @@ class CylController < ApplicationController
     fecha = Date.from_db(params[:clip][:date]).fecha
     Document.transaction do
       d = Document.create(params[:event])
-      d.new_clip("Evento el #{fecha}", 'event', @current, params[:clip][:recipient], params[:clip][:date]).save
+      Clip.create(params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
+        :title => "Evento el #{fecha}", :description => d.title))
       redirect_to :action => 'calendar'
     end
   end
@@ -99,12 +101,12 @@ class CylController < ApplicationController
     flash[:notice] = 'Respuesta creada'
   end
 
-def upload_create
-  archive = Archive.create(params[:archive])
-  Clip.create(clip[:params].merge(:title => 'Fichero subido', :content_class => 'Archive',
-    :content_type => 'archive', :content_id => archive.id,
-    :user_id => @current.id))
-end
+  def upload_create
+    archive = Archive.create(params[:archive])
+    Clip.create(clip[:params].merge(:title => 'Fichero subido', :content_class => 'Archive',
+        :content_type => 'archive', :content_id => archive.id,
+        :user_id => @current.id))
+  end
 
   def update_tags
     clip = Clip.find(params[:id])
@@ -117,5 +119,9 @@ end
   def render_login(error = nil)
     flash[:error] = error
     render :action => 'entrar'
+  end
+
+  def redirect_to_dashboard
+    redirect_to :action => 'dashboard'
   end
 end

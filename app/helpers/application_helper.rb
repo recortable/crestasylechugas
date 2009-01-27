@@ -27,8 +27,13 @@ end
   end
 
   def clip_info(clip)
+    render :partial => '/clips/info.rhtml.erb', :object => clip
+  end
+
+  def clip_infoOLD(clip)
     content_tag( :p, content_tag( :label, 'publicado ') <<  fecha(clip.created_at) ) <<
-      content_tag(:p, content_tag(:label, 'de ' ) << link_to(clip.user.name, clip.user) << 
+      content_tag(:p, content_tag(:label, 'de ' ) << link_to(clip.user.name, clip.user) <<
+        content_tag(:p, content_tag(:label, 'desde ') << link_to()) <<
         content_tag(:label, ' para ') << link_to(clip.recipient.name, clip.recipient) )
   end
 

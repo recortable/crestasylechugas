@@ -1,0 +1,5 @@
+<p>
+  <label>Publicado el </label><%= fecha info.created_at %>
+<label> por </label><%= link_to info.user.name, info.user %>
+<label> desde </label><%= link_to info.group.name, info.group %>
+<label> para </label><%= link_to info.recipient.name, info.recipient %></p>
