@@ -4,7 +4,7 @@
   <div class="text">
     <%= clip_info @clip %><br/>
   </div>
-  <p><%= @clip.description %></p>
+  <div class="text body"><%= @clip.description %></div>
 <% elsif -%>
   <h3><%= @clip.title %></h3>
   <div class="text">
@@ -21,13 +21,17 @@
   <% end -%>
   <h2>Respuestas</h2>
   <% for doc in @clip.document.children %>
+    <div class="body text">
+      <%= clip_info doc.clip if doc.clip? %>
+      <%= doc.body %>
+    </div>
   <% end %>
   <% form_tag({:controller => 'cyl', :action => 'response_create', :id => @clip}, :id => 'create_response') do %>
     <%= field_hidden :clip, :content_type, 'response' %>
     <%= field_hidden :response, :parent_id, @clip.document.id %>
+    <%= field_help t(:answer_help) %>
     <%= field_area t(:answer), :response, :body %>
     <%= field_submit 'Enviar respuesta', :create_response %>
   <% end -%>
 
 <% end -%>
-

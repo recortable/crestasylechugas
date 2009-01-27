@@ -111,4 +111,4 @@ table.calendar p.number {float: left;}
 .calendar a.peonadas {margin-top: 1em; border-bottom: 1px solid rgba(30, 40, 30, 0.6); }
 .calendar a h1 {font-size: 1em; color: rgba(0, 30, 0, 0.8); margin: 0;}
 
-.body {background-color: rgba(0,30,0,0.2); padding: 2em 1em; width: 60%;}
+.body {background-color: rgba(0,30,0,0.2); padding: 0.5em 2%; width: 57%;}

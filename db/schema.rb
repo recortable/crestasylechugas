@@ -11,18 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20090122043011) do
 
-  create_table "archives", :force => true do |t|
-    t.string   "content_type"
-    t.string   "filename"
-    t.integer  "size"
-    t.integer  "width"
-    t.integer  "height"
-    t.integer  "parent_id"
-    t.string   "thumbnail"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "clips", :force => true do |t|
     t.string   "title",         :null => false
     t.string   "description",   :null => false
@@ -30,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20090122043011) do
     t.string   "content_type"
     t.integer  "content_id"
     t.integer  "user_id",       :null => false
-    t.integer  "group_id"
+    t.integer  "group_id",      :null => false
     t.integer  "recipient_id",  :null => false
     t.string   "date"
     t.datetime "created_at"
@@ -44,6 +32,10 @@ ActiveRecord::Schema.define(:version => 20090122043011) do
     t.string   "title"
     t.text     "body"
     t.integer  "parent_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

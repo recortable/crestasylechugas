@@ -7,7 +7,7 @@ class CreateClips < ActiveRecord::Migration
       t.string 'content_type'
       t.references 'content'                                    # id del contenido (puede ser doc, arch, group...)
       t.references 'user', :null => false                  # el usuario que crea el clip
-      t.references 'group'                                       # el grupo que crea el clip
+      t.references 'group', :null => false                # el grupo que crea el clip
       t.references 'recipient', :null => false           # el grupo al que va dirigido el clip
       t.string 'date', :length => 8
       t.timestamps

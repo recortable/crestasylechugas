@@ -12,12 +12,10 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    User.create(:name => 'Jorge', :email => 'jorge', 
-      :pass => 'jorge', :admin => 'true')
-    User.create(:name => 'Paelo', :email => 'paelo', 
-      :pass => 'paelo', :admin => 'true')
-    User.create(:name => 'Dani', :email => 'dani', 
-      :pass => 'dani', :admin => 'true',
+    User.create(:name => 'Anónimo', :email => '', :pass => '', :admin => false)
+    User.create(:name => 'Jorge', :email => 'jorge', :pass => 'jorge', :admin => 'true')
+    User.create(:name => 'Paelo', :email => 'paelo', :pass => 'paelo', :admin => 'true')
+    User.create(:name => 'Dani', :email => 'dani', :pass => 'dani', :admin => 'true',
       :movil => '661913226', :fijo => '954916069')
     User.create(:name => 'Cris', :email => 'cris', :pass => 'cris')
   end

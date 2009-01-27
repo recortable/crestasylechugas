@@ -77,6 +77,16 @@ class CylController < ApplicationController
     end
   end
 
+
+  def upload_create
+    Document.transaction do
+      d = Document.create(params[:document])
+      Clip.create params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
+        :title => 'Nuevo fichero', :description => d.body)
+      redirect_to_dashboard
+    end
+  end
+
   def event_create
     fecha = Date.from_db(params[:clip][:date]).fecha
     Document.transaction do
@@ -86,6 +96,7 @@ class CylController < ApplicationController
       redirect_to :action => 'calendar'
     end
   end
+
 
   def blog_create
     Document.transaction do
@@ -105,12 +116,7 @@ class CylController < ApplicationController
     redirect_to_dashboard
   end
 
-  def upload_create
-    archive = Archive.create(params[:archive])
-    Clip.create(clip[:params].merge(:title => 'Fichero subido', :content_class => 'Archive',
-        :content_type => 'archive', :content_id => archive.id,
-        :user_id => @current.id))
-  end
+
 
   def update_tags
     clip = Clip.find(params[:id])

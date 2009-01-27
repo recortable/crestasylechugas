@@ -22,6 +22,6 @@ class Group < ActiveRecord::Base
   def new_clip(user)
     Clip.new(:title => 'Nuevo grupo', :description => "Celebramos la creación del grupo #{self.name}",
       :content_class => 'Group', :content_type => 'group', :content_id => self.id,
-      :user_id => user.id, :recipient_id => Group.get(:web))
+      :user_id => user.id, :group_id => Group.get(:web), :recipient_id => Group.get(:web))
   end
 end

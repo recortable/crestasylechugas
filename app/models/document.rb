@@ -1,14 +1,16 @@
 class Document < ActiveRecord::Base
   DIALECTS = [:textile, :plain, :html]
 
+  has_attached_file :file
   belongs_to :parent, :class_name => 'Document'
-  has_many :children, :foreign_key => 'parent', :class_name => 'Document'
+  has_many :children, :foreign_key => 'parent_id', :class_name => 'Document'
 
-  def new_clip(title, type, user, recipient_id, date = nil)
-    desc = type == 'event' ? "<h1>#{self.title}</h1>" : self.summary
-    Clip.create(:title => title, :description => desc, :content_class => 'Document',
-      :content_type => type, :recipient_id => recipient_id, :user_id => user.id,
-      :content_id => self.id, :date => date )
+  def clip
+    @clip ||= Clip.find(:first, :conditions => {:content_class => 'Document', :content_id => self.id})
+  end
+
+  def clip?
+    !clip.nil?
   end
 
   def summary
