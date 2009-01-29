@@ -1,5 +1,5 @@
 
-body {font-family: "Garamond",Times,serif;}
+body {font-family: Georgia, "Times New Roman", Times, serif;}
 
 a {color: black;}
 
@@ -16,8 +16,9 @@ a {color: black;}
 p.notice {display: block; background-color: #EFFF79; padding: 0.5em 1em; margin-bottom: 0.5em;}
 
 
-.blog {float: left; width: 60%; padding: 0 3%; border-right: 1px solid gray; padding-bottom: 3em;}
-.blog h2 {font-size: 2em;}
+.blog {padding: 0 3% 0 3em;  }
+.blog .post h2 {font-size: 2em;}
+.blog .post {margin-bottom: 2em;}
 
 .news {width: 30%; float: left; margin-left: 3%;}
 .news h1 {font-size: 1.5em; margin-top: 0.25em;}

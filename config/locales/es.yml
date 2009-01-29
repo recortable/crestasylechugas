@@ -10,3 +10,5 @@ es:
   title_help: "Que sea breve, explícito y descriptivo, porfi"
   answer: "Respuesta"
   answer_help: "Puedes añadir un comentario/respuesta aquí"
+  dialect: "Dialecto"
+  dialect_help: "La entrada se puede escribir utilizando distintos códigos. Se recomienda textile"

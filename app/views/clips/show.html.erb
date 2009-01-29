@@ -13,8 +13,8 @@
   <h1><%= @clip.document.title %></h1>
   <div class="body text">
     <%= @clip.document.body %>
-    <% if !@clip.document.file.name.nil? -%>
-      <%= @clip.document.file.file_name %>
+    <% if !@clip.document.file.file? -%>
+      <%= @clip.document.file.original_filename %>
       <% end -%>
   </div>
   <% form_tag({:controller => 'cyl', :action => 'update_tags', :id => @clip}, :id => 'update_tags') do %>

@@ -12,6 +12,14 @@ class Document < ActiveRecord::Base
     @clip ||= Clip.find(:first, :conditions => {:content_class => 'Document', :content_id => self.id})
   end
 
+  def render
+    if dialect == 'textile'
+      textilize body
+    elsif
+      body
+    end
+  end
+
   def clip?
     !clip.nil?
   end
@@ -19,4 +27,16 @@ class Document < ActiveRecord::Base
   def summary
     "<h1>#{title}</h1>#{body}"
   end
+
+  private
+  def textilize(text)
+    if text.blank?
+      ""
+    else
+      textilized = RedCloth.new(text, [ :hard_breaks ])
+      textilized.hard_breaks = true if textilized.respond_to?(:hard_breaks=)
+      textilized.to_html
+    end
+  end
+
 end

@@ -101,8 +101,10 @@ class CylController < ApplicationController
   def blog_create
     Document.transaction do
       d = Document.create(params[:blog])
-      d.new_clip('Entrada al blog', 'blog', @current, 1).save
-      redirect_to :action => 'blog'
+      Clip.create params[:clip].merge(:user_id => @current.id, :content_id => d.id, :content_class => 'Document',
+        :group_id => Group.get(:cyl), :recipient_id => Group.get(:cyl),
+        :title => 'Entrada al blog', :description => d.summary)
+      redirect_to_dashboard
     end
   end
 
