@@ -9,17 +9,20 @@
     <%= javascript_include_tag 'jquery.valida.js'  %>
     <%= stylesheet_link_tag 'simplex' %>
     <%= yield :header %>
-    <style type="text/css">html {background-color: <%= ucolor %>;}</style>
+  <style type="text/css">html {background-color: <%= ucolor %>;}</style>
 
     <script type="text/javascript">
       $(function() {$(".tags h1").click(function() {
           $(".tags ul").slideToggle();
-      })});
+        })});
     </script>
 
   </head>
   <body>
     <div class="page">
+      <div class="top">
+        <%= link_to 'Crestasylechugas', cyl(:crestas)%>
+      </div>
       <% user_area do -%>
         <div class="navigation">
           <%= link_to @current.name, cyl(:dashboard) %>
@@ -29,11 +32,12 @@
           <%= link_to 'Gente', users_path %><%= link_to 'Grupos', groups_path %>
           <div class="login">hola, <%= link_to @current.name, :controller => 'cyl', :action => 'dashboard' %>.
             <%= link_to('Eres administrador. ', :controller => 'admin' ) if @current.admin %>
-            <%= link_to 'Salir', cyl(:crestas) %></div>
+            <%= link_to 'Cerrar sessión', cyl(:logout) %></div>
         </div>
       <% end -%>
       <div class="tags"><h1>Etiquetas</h1><ul><% for tag in Clip.tag_counts -%><li><%= link_to tag %></li><% end -%></ul>  </div>
       <div class="content"><%= yield %></div>
     </div>
+    <%= render :partial => '/layouts/ga' %>
   </body>
 </html>

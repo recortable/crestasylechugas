@@ -19,7 +19,8 @@ class AdminController < ApplicationController
       m.groups  << Group.find(1)
       m.save
       Clip.create(:title => 'Nuevo miembro!', :description => "Damos la bienvenida a #{m.name}",
-        :content_class => 'User', :content_type => 'user', :content_id => m.id, :user_id => @current.id)
+        :content_class => 'User', :content_type => 'user', :content_id => m.id, :user_id => @current.id,
+        :recipient_id => Group.get(:cyl), :group_id => Group.get(:web))
       show_admin 'Se ha añadido un nuevo miembro! lol lol'
     end
   end

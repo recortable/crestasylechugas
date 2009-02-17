@@ -3,10 +3,13 @@
 <table>
   <% for user in @users %>
     <tr>
-      <td class="date"><p>hola</p></td>
+      <td class="date"><p>&nbsp;</p></td>
       <td class="title"><%= link_to user.name, user %></td>
-      <td class="description"><p><%= user.email %></p></td>
+      <td class="description"><p><%= user.email %></p><p><%= user.movil %> / <%= user.fijo %></p> </td>
       <td class="links"><% for group in user.groups -%><%= link_to group.name, group %><% end -%></td>
+      <%  admin_area do -%><td><%= link_to 'Borrar de crestas', {:controller => 'admin',
+          :action => 'delete_user', :id => user.id}, :confirm => "Cuidado! Cuidado! ¿Quieres dar de baja a #{user.name}?" %>
+          </td><% end -%>
     </tr>
   <% end %>
 </table>

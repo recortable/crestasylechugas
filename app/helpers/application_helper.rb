@@ -17,10 +17,16 @@ module ApplicationHelper
   end
 
   def user_area(&block)
-  if !@current.nil?
-    concat content_tag(:div, capture(&block), :class => 'admin'), block.binding
+    if !@current.nil?
+      concat content_tag(:div, capture(&block), :class => 'user'), block.binding
+    end
   end
-end
+
+  def admin_area(&block)
+    if !@current.nil? && @current.admin?
+      concat capture(&block), block.binding
+    end
+  end
 
   def title(page_title)
     content_for(:title) { page_title }

@@ -19,10 +19,10 @@ class CylController < ApplicationController
     u = User.find_by_email(params[:email])
     if u.nil?
       render_login 'Ese email no está registrado'
-    elsif u.pass == ""
+    elsif u.pass.nil? || u.pass == ""
       session[:user_id] = u.id
       session[:color] = params[:user][:color]
-      redirect_to :action => 'change_password'
+      redirect_to :action => 'new_password'
     elsif u.pass != params[:pass]
       render_login 'La contraseña no es correcta'
     else
@@ -45,9 +45,9 @@ class CylController < ApplicationController
       flash[:error] = 'Las contraseñas no son iguales!'
       render :action => 'new_password'
     else
-      @current.passs = params[:pass]
+      @current.pass = params[:pass]
       @current.save
-      redirect_to :controller => 'users'
+      redirect_to_dashboard
     end
   end
 

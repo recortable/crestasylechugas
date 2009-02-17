@@ -1,6 +1,7 @@
 
 <h1><%= @user.name %></h1>
-<% form_tag(cyl(:update_user), :id => 'update_user') do %>
+<% form_tag({:action => 'update', :id => @user.id}, :method => 'put', :id => 'update_user') do %>
+  <%= field_text 'Nombre', :user, :name, :value => @user.name %>
   <%= field_text 'Email', :user, :email, :value => @user.email %>
   <%= field_text 'Móvil', :user, :movil, :value => @user.movil %>
   <%= field_text 'Fijo', :user, :fijo, :value => @user.fijo %>
